@@ -1,0 +1,530 @@
+{% load static %}
+
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Analytics Dashboard - This is an example dashboard created using build-in elements and components.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
+    <meta name="msapplication-tap-highlight" content="no">
+    <!--
+    =========================================================
+    * ArchitectUI HTML Theme Dashboard - v1.0.0
+    =========================================================
+    * Product Page: https://dashboardpack.com
+    * Copyright 2019 DashboardPack (https://dashboardpack.com)
+    * Licensed under MIT (https://github.com/DashboardPack/architectui-html-theme-free/blob/master/LICENSE)
+    =========================================================
+    * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+    -->
+<link href="{% static 'css/main.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="https://uicdn.toast.com/grid/latest/tui-grid.css" />
+<script src="https://uicdn.toast.com/grid/latest/tui-grid.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chance/1.0.13/chance.min.js"></script>
+
+
+<link rel="stylesheet" href="https://uicdn.toast.com/tui.chart/latest/tui-chart.min.css">
+<script type='text/javascript' src='https://uicdn.toast.com/tui.code-snippet/v1.5.2/tui-code-snippet.min.js'></script>
+<script type='text/javascript' src='https://uicdn.toast.com/tui.chart/latest/raphael.js'></script>
+<script src="https://uicdn.toast.com/tui.chart/latest/tui-chart.min.js"></script>
+</head>
+
+<body>
+    <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
+        
+        
+        
+        
+        <div class="app-header header-shadow" class="hi">  <!-- 창 위쪽 헤더부분 div -->
+            
+            
+            <!--  로고 -->
+            <div class="app-header__logo">
+                <div class="logo-src"></div>
+                <div class="header__pane ml-auto">
+                    <div>
+                        <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+
+            <!-- ??? 뭐지???
+            <div class="app-header__mobile-menu">
+                <div>
+                    <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        -->
+
+
+            <!-- ????
+            <div class="app-header__menu">
+                <span>
+                    <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                        <span class="btn-icon-wrapper">
+                            <i class="fa fa-ellipsis-v fa-w-6"></i>
+                        </span>
+                    </button>
+                </span>
+            </div>    
+        -->
+            
+            <!-- 헤더 콘텐츠 -->
+            <div class="app-header__content">
+                
+                
+                
+                
+
+
+                <div class="app-header-right">
+                    <div class="header-btn-lg pr-0">
+                        <div class="widget-content p-0">
+                            <div class="widget-content-wrapper">
+                                <div class="widget-content-left">
+                                    <div class="btn-group">
+                                        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
+                                            <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg" alt="">
+                                            <i class="fa fa-angle-down ml-2 opacity-8"></i>
+                                        </a>
+                                        <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
+                                            <button type="button" tabindex="0" class="dropdown-item">User Account</button>
+                                            <button type="button" tabindex="0" class="dropdown-item">Settings</button>
+                                            <h6 tabindex="-1" class="dropdown-header">Header</h6>
+                                            <button type="button" tabindex="0" class="dropdown-item">Actions</button>
+                                            <div tabindex="-1" class="dropdown-divider"></div>
+                                            <button type="button" tabindex="0" class="dropdown-item">Dividers</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="widget-content-left  ml-3 header-user-info">
+                                    <div class="widget-heading">
+                                        Gunha Jang
+                                    </div>
+                                    <div class="widget-subheading">
+                                        BOB digital forensic track
+                                    </div>
+                                </div>
+                                <div class="widget-content-right header-user-info ml-3">
+                                    <button type="button" class="btn-shadow p-1 btn btn-primary btn-sm show-toastr-example">
+                                        <i class="fa text-white fa-calendar pr-1 pl-1"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>        
+                </div>
+            </div> 
+        </div>
+        
+
+        
+        
+        <!-- 메인 화면 -->
+        <div class="app-main">
+
+                <!-- sidebar -->
+                <div class="app-sidebar sidebar-shadow">
+                    <div class="app-header__logo">
+                        <div class="logo-src"></div>
+                        <div class="header__pane ml-auto">
+                            <div>
+                                <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                                    <span class="hamburger-box">
+                                        <span class="hamburger-inner"></span>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="app-header__mobile-menu">
+                        <div>
+                            <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+                                <span class="hamburger-box">
+                                    <span class="hamburger-inner"></span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="app-header__menu">
+                        <span>
+                            <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                                <span class="btn-icon-wrapper">
+                                    <i class="fa fa-ellipsis-v fa-w-6"></i>
+                                </span>
+                            </button>
+                        </span>
+                    </div>    <div class="scrollbar-sidebar">
+                        <div class="app-sidebar__inner">
+                            <ul class="vertical-nav-menu">
+                                <li class="app-sidebar__heading">Home</li>
+                                <li>
+                                    <a href="/">
+                                        <i class="metismenu-icon pe-7s-cloud"></i>
+                                        Main Page
+                                    </a>
+                                </li>
+                                <li class="app-sidebar__heading">Logs</li>
+                                <li>
+                                    <a href="/logs">
+                                        <i class="metismenu-icon pe-7s-look"></i>
+                                        Log Explorer
+
+                                    </a>
+                                    <a href="/query">
+                                        <i class="metismenu-icon pe-7s-display1"></i>
+                                        Threat Items
+                                    </a>
+                                    <a href="/baguni" class="mm-active">
+                                        <i class="metismenu-icon pe-7s-date"></i>
+                                        Log Baguni
+                                    </a>
+
+                                </li>
+                                <li class="app-sidebar__heading">Settings</li>
+                                <li>
+                                    <a href="/regist">
+                                        <i class="metismenu-icon pe-7s-add-user"></i>
+                                        Registeration
+                                    </a>
+                                    <a href="/check">
+                                        <i class="metismenu-icon pe-7s-check"></i>
+                                        Settings Check
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>    
+                
+                
+                
+                
+                
+
+
+                <!-- 화면에 보이는 부분 -->
+
+                <div class="app-main__outer">
+                
+                    
+                    <div class="app-main__inner">
+                        
+                        
+                        <!-- 페이지 헤더 부분 -->
+                        <div class="app-page-title">
+                            <div class="page-title-wrapper">
+                                <div class="page-title-heading">
+                                    <div class="page-title-icon">
+                                        <i class="pe-7s-date icon-gradient bg-mean-fruit">
+                                        </i>
+                                    </div>
+                                    <div>Logs Baguni
+                                        <div class="page-title-subheading">You can view selected logs here
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="page-title-actions">
+                                    <button type="button" data-toggle="tooltip" title="Example Tooltip" data-placement="bottom" class="btn-shadow mr-3 btn btn-dark">
+                                        <i class="fa fa-star"></i>
+                                    </button>
+                                    <div class="d-inline-block dropdown">
+                                        <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn-shadow dropdown-toggle btn btn-info">
+                                            <span class="btn-icon-wrapper pr-2 opacity-7">
+                                                <i class="fa fa-business-time fa-w-20"></i>
+                                            </span>
+                                            Buttons
+                                        </button>
+                                        <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
+                                            <ul class="nav flex-column">
+                                                <li class="nav-item">
+                                                    <a href="javascript:void(0);" class="nav-link">
+                                                        <i class="nav-link-icon lnr-inbox"></i>
+                                                        <span>
+                                                            Inbox
+                                                        </span>
+                                                        <div class="ml-auto badge badge-pill badge-secondary">86</div>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="javascript:void(0);" class="nav-link">
+                                                        <i class="nav-link-icon lnr-book"></i>
+                                                        <span>
+                                                            Book
+                                                        </span>
+                                                        <div class="ml-auto badge badge-pill badge-danger">5</div>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="javascript:void(0);" class="nav-link">
+                                                        <i class="nav-link-icon lnr-picture"></i>
+                                                        <span>
+                                                            Picture
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a disabled href="javascript:void(0);" class="nav-link disabled">
+                                                        <i class="nav-link-icon lnr-file-empty"></i>
+                                                        <span>
+                                                            File Disabled
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>    
+                            </div>
+                        </div>     
+                        
+                       
+
+                        
+                        <!-- CUSTOM PART -->
+                         <!-- google chart 의 표 쓰기 -->
+                         <div class="row">
+                            <div class="col-md-12">
+                                
+                                
+                                    <div class="col-lg-12">
+                                        <div class="main-card mb-3 card">
+                                            <div class="card-body">
+                                                
+                                                <h2 class="app-sidebar__heading" style="font-size: 35px;">Log Baguni</h2>
+                                              
+                                                <div id="cust-cal" style="height:900px;"></div>
+                                                <br>
+                                                <table border="1" id="contents" width=100% style="table-layout:fixed;" >
+                                                    <tr>
+                                                        <th class="title" width=17%>timestamp</th>
+                                                        <th width=14%>tag      </th>
+                                                        <th width=62%>content</th>
+                                                        <th width=5%>delete</th>       
+                                                    </tr>
+                                                    </form>
+                                                    {% for log in logs %}
+                                                    <tr>
+                                                        <td class="title" width=17%>{{log.timestamp}}</td>
+                                                        <td width=14%>{{log.tag}}</td>
+                                                        <td width=62%><div style="overflow:hidden;text-overflow:ellipsis;"><nobr>{{log.content}}</nobr></td>
+                                                        <td width=5%>
+                                                            <form action="/postdelete" method="POST">
+                                                            {% csrf_token %}
+                                                            <input type="hidden" name="timestamp" value="{{log.timestamp}}">
+                                                            <input type="hidden" name="tag" value="{{log.tag}}">
+                                                            <input type="hidden" name="content" value="{{log.content}}">
+                                                            <input type="hidden" name="id" value="{{log.id}}">
+                                                            <input type="submit" class="del_btn" style="width:100%" value="삭제">
+                                                            </form>
+                                                        </td>
+                                                            
+                                                        
+                                                    </tr>
+                                                        <td class="conts" colspan="4">{{log.content}}</td>
+                                                    <tr></tr>
+                                                    {% endfor %}
+                                                </table> 
+                                                
+                                                <!--
+                                                <button class="mb-2 mr-2 btn btn-primary btn-lg btn-block" id="cloudwatch" onclick="listLogGroups()">로그 그룹 보여줘!
+                                                    
+                                                </button>
+                                            -->
+                                                <div id="loggroupgrid2"></div>
+                                                
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+
+                             
+                                
+                            </div>
+                        </div>
+
+                </div>
+                
+        </div>
+    </div>
+<script src="https://sdk.amazonaws.com/js/aws-sdk-2.783.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.5/xlsx.full.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <link href="{% static 'css/cal.css' %}"rel='stylesheet' />
+    <script src="{% static 'js/cal.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+
+
+<script language="javascript" type="text/javascript">
+
+$(function () {
+    $('#contents tr').hide(); 
+    $('#contents').find('.title').parent().show();
+    $('#contents .title').parent().click(function(){
+        var tr = $('#contents tr');
+        var rindex = $(this).parent().children().index(this);
+        if(rindex != 0){
+            if($(tr[rindex+1]).css("display") == "none"){
+                $('#contents').find('.title').parent().show();
+                $('#contents').find('.title').css('background-color', '#fff'); 
+                $(this).children().css('background-color', '#f7f7f7'); 
+                for(var i = rindex; i < rindex + 2; i++){ 
+                    $(tr[i]).show(); 
+                }
+            }else{
+                $('#contents').find('.title').parent().show();
+                $('#contents').find('.title').css('background-color', '#fff'); 
+                $(this).children().css('background-color', '#f7f7f7'); 
+                $(tr[rindex]).show(); 
+                $(tr[rindex+1]).hide();
+            }
+        }
+    });
+});
+</script>
+<script>
+
+$(function (){
+    var container = document.getElementById('line-chart');
+    var tr = $('#contents tr')
+    var rindex = $(this).parent().children().index(this);
+    var temp
+    var result = {}
+    result['categories'] = ['source IP'];
+    result['series'] = [];
+    var tmp = {};
+    for(var i = 1; i < tr.length; i+=3){
+        
+        temp = $(tr[i]).contents()[5].innerText.split('"');
+        if (temp.indexOf("sourceIPAddress") != -1){
+            temp = temp[temp.indexOf("sourceIPAddress")+2];
+            if (Object.keys(tmp).includes(temp) != true){
+                tmp[temp] = 0;
+            }
+            tmp[temp] += 1;
+        }else{
+            if(Object.keys(tmp).includes('none') != true){
+                tmp['none'] = 0;
+            }
+            tmp['none'] += 1;
+        }
+    }
+
+    for (const [key, value] of Object.entries(tmp)) {
+        var tmp2 = {}
+        tmp2['name'] = key;
+        tmp2['data'] = value;
+        result['series'].push(tmp2)
+    }
+    
+    
+    var container2 = document.getElementById('chart-area');
+    var options2 = {
+        chart: {
+            width: 660,
+            height: 560,
+            title: 'IP Addresses'
+        },
+        tooltip: {
+            suffix: '개'
+        }
+    };
+    var theme = {
+        series: {
+            colors: [
+                '#83b14e', '#458a3f', '#295ba0', '#2a4175', '#289399',
+                '#289399', '#617178', '#8a9a9a', '#516f7d', '#dddddd'
+            ]
+        }
+    };
+
+    // For apply theme
+
+    // tui.chart.registerTheme('myTheme', theme);
+    // options.theme = 'myTheme';
+
+    tui.chart.pieChart(container2, result, options2);
+
+  
+
+})
+
+
+
+
+    
+</script>
+<script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('cust-cal');
+        var tr = $('#contents tr')
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            contentHeight: 600,
+            headerToolbar: {
+                left: 'dayGridMonth,timeGridWeek,timeGridDay',
+                center: 'title',
+                right: 'today prev,next'
+            },
+            dateClick: function(info) {
+                calendar.changeView('timeGridDay', info.dateStr);
+            },
+            displayEventTime: true,
+            eventTimeFormat: { // like '14:30:00'
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false
+            },
+            eventClick: function(arg) {
+
+                // opens events in a popup window
+                var mywindow = window.open(arg.event.url, '_blank', 'width=700,height=600');
+                for(var i = 1; i < tr.length; i+=3){
+                    if($(tr[i]).contents()[3].innerText == arg.event.title){
+                        mywindow.document.write($(tr[i]).contents()[5].innerText)
+                    }
+                }
+                //mywindow.document.write(arg.event.title)
+                // prevents current tab from navigating
+                arg.jsEvent.preventDefault();
+            }
+        });
+        var source = {}
+        for(var i = 1; i < tr.length; i+=3){
+            temp1 = $(tr[i]).contents()[1].innerText;
+            temp = temp1.split(' ')[0] + 'T' + temp1.split(' ')[1]
+            temp2 = $(tr[i]).contents()[3].innerText;
+            source['title'] = temp2;
+            source['start'] = temp;
+            source['color'] = 'blue';
+            calendar.addEvent(source)
+        }
+        calendar.render();
+    });
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,299 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Analytics Dashboard - This is an example dashboard created using build-in elements and components.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
+    <meta name="msapplication-tap-highlight" content="no">
+    <!--
+    =========================================================
+    * ArchitectUI HTML Theme Dashboard - v1.0.0
+    =========================================================
+    * Product Page: https://dashboardpack.com
+    * Copyright 2019 DashboardPack (https://dashboardpack.com)
+    * Licensed under MIT (https://github.com/DashboardPack/architectui-html-theme-free/blob/master/LICENSE)
+    =========================================================
+    * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+    -->
+<link href="{% static 'css/main.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="https://uicdn.toast.com/grid/latest/tui-grid.css" />
+<script src="https://uicdn.toast.com/grid/latest/tui-grid.js"></script>
+
+
+<link rel="stylesheet" href="https://uicdn.toast.com/tui.chart/latest/tui-chart.min.css">
+    <script type='text/javascript' src='https://uicdn.toast.com/tui.code-snippet/v1.5.0/tui-code-snippet.min.js'></script>
+    <script type='text/javascript' src='https://uicdn.toast.com/tui.chart/latest/raphael.js'></script>
+    <script src="https://uicdn.toast.com/tui.chart/latest/tui-chart.min.js"></script>
+</head>
+
+<body>
+    <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
+        
+        
+        
+        
+        <div class="app-header header-shadow" class="hi">  <!-- 창 위쪽 헤더부분 div -->
+            
+            
+            <!--  로고 -->
+            <div class="app-header__logo">
+                <div class="logo-src"></div>
+                <div class="header__pane ml-auto">
+                    <div>
+                        <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+           
+            
+            <!-- 헤더 콘텐츠 -->
+            <div class="app-header__content">
+                
+  
+                <div class="app-header-right">
+                    <div class="header-btn-lg pr-0">
+                        <div class="widget-content p-0">
+                            <div class="widget-content-wrapper">
+                                <div class="widget-content-left">
+                                    <div class="btn-group">
+                                        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
+                                            <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg" alt="">
+                                            <i class="fa fa-angle-down ml-2 opacity-8"></i>
+                                        </a>
+                                        <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
+                                            <button type="button" tabindex="0" class="dropdown-item">User Account</button>
+                                            <button type="button" tabindex="0" class="dropdown-item">Settings</button>
+                                            <h6 tabindex="-1" class="dropdown-header">Header</h6>
+                                            <button type="button" tabindex="0" class="dropdown-item">Actions</button>
+                                            <div tabindex="-1" class="dropdown-divider"></div>
+                                            <button type="button" tabindex="0" class="dropdown-item">Dividers</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="widget-content-left  ml-3 header-user-info">
+                                    <div class="widget-heading">
+                                        Gunha Jang
+                                    </div>
+                                    <div class="widget-subheading">
+                                        BOB digital forensic track
+                                    </div>
+                                </div>
+                                <div class="widget-content-right header-user-info ml-3">
+                                    <button type="button" class="btn-shadow p-1 btn btn-primary btn-sm show-toastr-example">
+                                        <i class="fa text-white fa-calendar pr-1 pl-1"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>        
+                </div>
+            </div> 
+        </div>
+        
+
+        
+        
+        <!-- 메인 화면 -->
+        <div class="app-main">
+
+                <!-- sidebar -->
+                <div class="app-sidebar sidebar-shadow">
+                    <div class="app-header__logo">
+                        <div class="logo-src"></div>
+                        <div class="header__pane ml-auto">
+                            <div>
+                                <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                                    <span class="hamburger-box">
+                                        <span class="hamburger-inner"></span>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="app-header__mobile-menu">
+                        <div>
+                            <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+                                <span class="hamburger-box">
+                                    <span class="hamburger-inner"></span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="app-header__menu">
+                        <span>
+                            <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                                <span class="btn-icon-wrapper">
+                                    <i class="fa fa-ellipsis-v fa-w-6"></i>
+                                </span>
+                            </button>
+                        </span>
+                    </div>    <div class="scrollbar-sidebar">
+                        <div class="app-sidebar__inner">
+                            <ul class="vertical-nav-menu">
+                                <li class="app-sidebar__heading">Home</li>
+                                <li>
+                                    <a href="/" >
+                                        <i class="metismenu-icon pe-7s-cloud"></i>
+                                        Main Page
+                                    </a>
+                                </li>
+                                <li class="app-sidebar__heading">Logs</li>
+                                <li>
+                                    <a href="/logs" class="mm-active">
+                                        <i class="metismenu-icon pe-7s-look"></i>
+                                        Log Explorer
+
+                                    </a>
+                                    <a href="/query">
+                                        <i class="metismenu-icon pe-7s-display1"></i>
+                                        Threat Items
+                                    </a>
+                                    <a href="/baguni">
+                                        <i class="metismenu-icon pe-7s-date"></i>
+                                        Log Baguni
+                                    </a>
+
+                                </li>
+                                <li class="app-sidebar__heading">Settings</li>
+                                <li>
+                                    <a href="/regist">
+                                        <i class="metismenu-icon pe-7s-add-user"></i>
+                                        Registeration
+                                    </a>
+                                    <a href="/check">
+                                        <i class="metismenu-icon pe-7s-check"></i>
+                                        Settings Check
+                                    </a>
+                                </li>
+
+                                    
+                                 
+                            </ul>
+                        </div>
+                    </div>
+                </div>    
+                
+
+
+                <!-- 화면에 보이는 부분 -->
+
+                <div class="app-main__outer">
+                
+                    
+                    <div class="app-main__inner">
+                        
+                        
+                        <!-- 페이지 헤더 부분 -->
+                        <div class="app-page-title">
+                            <div class="page-title-wrapper">
+                                <div class="page-title-heading">
+                                    <div class="page-title-icon">
+                                        <i class="pe-7s-look icon-gradient bg-mean-fruit">
+                                        </i>
+                                    </div>
+                                    <div>Logs Explorer
+                                        <div class="page-title-subheading">You can view every logs here
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>     
+                        
+                        
+
+                        
+                        <!-- CUSTOM PART -->
+                         <!-- google chart 의 표 쓰기 -->
+                         <div class="row">
+                            <div class="col-md-12">
+                                
+                                
+                                    <div class="col-lg-12">
+                                        <div class="main-card mb-3 card">
+                                            <div class="card-body">
+                                                <!--
+                                                <button class="mb-2 mr-2 btn btn-primary btn-lg btn-block" id="cloudwatch" onclick="listLogGroups()">로그 그룹 보여줘!
+                                                    
+                                                </button>
+                                            
+                                                <div id="loggroupgrid"></div>-->
+                                                <button id="show" class="btn btn-primary" >Show</button>
+                                                <table 
+                                                    id="table3"
+                                                    data-select-item-name="selectItemName"
+                                                   
+                                                    
+                                                    data-pagination="true"
+                                                    data-search="true"
+                                                    data-show-search-button="true"
+                                                    
+
+                                                    data-unique-id="id"
+                                                    data-click-to-select="true"
+                                                    data-toolbar="#show"
+
+                                
+                                                >   
+                                                    <thead>
+                                                      <tr>
+                                                        <th data-field="state" data-checkbox="true"></th>
+                                                        <th data-field="id">ID</th>
+                                                        <th data-field="logGroupName">로그그룹</th>
+                                                        <th data-field="creationTime" >생성시간</th>
+                                                        <th data-field="storedBytes" >용량</th>
+                                                        
+                                                      </tr>
+                                                    </thead>
+                                                  </table>
+                                                
+                                                
+                                            </div>
+                                        </div>
+                                    </div>    
+                            </div>
+                        </div>
+
+                </div>
+                
+        </div>
+    </div>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.783.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.5/xlsx.full.min.js"></script>
+    
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/bootstrap-table@1.18.0/dist/bootstrap-table.min.js"></script>
+<script>
+    window.onload = listLogGroups;
+
+    var $table3 = $('#table3')
+    $(function() {
+    $('#show').click(function () {
+      var index = []
+      $('input[name="selectItemName"]:checked').each(function () {
+        var rowNum = $(this).data('index')
+
+        var tmp = $table3.bootstrapTable('getRowByUniqueId', rowNum)['logGroupName'];
+        window.location.href = "viewer?index=" + tmp;
+      })
+    })
+  })
+    
+</script>
+</body>
+
+</html>

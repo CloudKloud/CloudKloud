@@ -1,0 +1,459 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Analytics Dashboard - This is an example dashboard created using build-in elements and components.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
+    <meta name="msapplication-tap-highlight" content="no">
+    <!--
+    =========================================================
+    * ArchitectUI HTML Theme Dashboard - v1.0.0
+    =========================================================
+    * Product Page: https://dashboardpack.com
+    * Copyright 2019 DashboardPack (https://dashboardpack.com)
+    * Licensed under MIT (https://github.com/DashboardPack/architectui-html-theme-free/blob/master/LICENSE)
+    =========================================================
+    * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+    -->
+<link href="{% static 'css/main.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="https://uicdn.toast.com/grid/latest/tui-grid.css" />
+<script src="https://uicdn.toast.com/grid/latest/tui-grid.js"></script>
+
+
+<link rel="stylesheet" href="https://uicdn.toast.com/tui.chart/latest/tui-chart.min.css">
+    <script type='text/javascript' src='https://uicdn.toast.com/tui.code-snippet/v1.5.0/tui-code-snippet.min.js'></script>
+    <script type='text/javascript' src='https://uicdn.toast.com/tui.chart/latest/raphael.js'></script>
+    <script src="https://uicdn.toast.com/tui.chart/latest/tui-chart.min.js"></script>
+</head>
+
+<body>
+    <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
+        
+        <div class="app-header header-shadow" class="hi">  <!-- 창 위쪽 헤더부분 div -->
+            
+            
+            <!--  로고 -->
+            <div class="app-header__logo">
+                <div class="logo-src"></div>
+                <div class="header__pane ml-auto">
+                    <div>
+                        <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+
+        
+            <!-- 헤더 콘텐츠 -->
+            <div class="app-header__content">
+                <div class="app-header-left">
+                    <div class="search-wrapper">
+                        <div class="input-holder">
+                            <input type="text" class="search-input" placeholder="Type to search">
+                            <button class="search-icon"><span></span></button>
+                        </div>
+                        <button class="close"></button>
+                    </div>
+                    <ul class="header-menu nav">
+                        <li class="nav-item">
+                            <a href="javascript:void(0);" class="nav-link">
+                                <i class="nav-link-icon fa fa-database"> </i>
+                                Statistics
+                            </a>
+                        </li>
+                        <li class="btn-group nav-item">
+                            <a href="javascript:void(0);" class="nav-link">
+                                <i class="nav-link-icon fa fa-edit"></i>
+                                Projects
+                            </a>
+                        </li>
+                        <li class="dropdown nav-item">
+                            <a href="javascript:void(0);" class="nav-link">
+                                <i class="nav-link-icon fa fa-cog"></i>
+                                Settings
+                            </a>
+                        </li>
+                    </ul>        
+                </div>
+                
+
+
+
+                <div class="app-header-right">
+                    <div class="header-btn-lg pr-0">
+                        <div class="widget-content p-0">
+                            <div class="widget-content-wrapper">
+                                <div class="widget-content-left">
+                                    <div class="btn-group">
+                                        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
+                                            <img width="42" class="rounded-circle" src="{% static 'images/avatars/1.jpg' %}" alt="">
+                                            <i class="fa fa-angle-down ml-2 opacity-8"></i>
+                                        </a>
+                                        <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
+                                            <button type="button" tabindex="0" class="dropdown-item">User Account</button>
+                                            <button type="button" tabindex="0" class="dropdown-item">Settings</button>
+                                            <h6 tabindex="-1" class="dropdown-header">Header</h6>
+                                            <button type="button" tabindex="0" class="dropdown-item">Actions</button>
+                                            <div tabindex="-1" class="dropdown-divider"></div>
+                                            <button type="button" tabindex="0" class="dropdown-item">Dividers</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="widget-content-left  ml-3 header-user-info">
+                                    <div class="widget-heading">
+                                        Gunha Jang
+                                    </div>
+                                    <div class="widget-subheading">
+                                        BOB digital forensic track
+                                    </div>
+                                </div>
+                                <div class="widget-content-right header-user-info ml-3">
+                                    <button type="button" class="btn-shadow p-1 btn btn-primary btn-sm show-toastr-example">
+                                        <i class="fa text-white fa-calendar pr-1 pl-1"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>        
+                </div>
+            </div> 
+        </div>
+        
+    
+        
+        
+        <!-- 메인 화면 -->
+        <div class="app-main">
+
+                <!-- sidebar -->
+            <div class="app-sidebar sidebar-shadow">
+                <div class="app-header__logo">
+                    <div class="logo-src"></div>
+                    <div class="header__pane ml-auto">
+                        <div>
+                              <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                                <span class="hamburger-box">
+                                    <span class="hamburger-inner"></span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="app-header__mobile-menu">
+                     <div>
+                        <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                              </span>
+                        </button>
+                    </div>
+                </div>
+                <div class="app-header__menu">
+                      <span>
+                        <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                            <span class="btn-icon-wrapper">
+                                <i class="fa fa-ellipsis-v fa-w-6"></i>
+                            </span>
+                        </button>
+                    </span>
+                </div>    <div class="scrollbar-sidebar">
+                    <div class="app-sidebar__inner">
+                        <ul class="vertical-nav-menu">
+                            <li class="app-sidebar__heading">Home</li>
+                            <li>
+                                <a href="/" >
+                                    <i class="metismenu-icon pe-7s-rocket"></i>
+                                    Main Page
+                                </a>
+                            </li>
+                            <li class="app-sidebar__heading">Logs</li>
+                            <li>
+                                <a href="/logs">
+                                    <i class="metismenu-icon pe-7s-diamond"></i>
+                                    Log Explorer                                
+                                </a>
+                                <a href="/query">
+                                    <i class="metismenu-icon pe-7s-diamond"></i>
+                                    Automated Query
+                                </a>
+                            </li>
+                            <li class="app-sidebar__heading">Incident Response</li>
+                                <li>
+                                    <a href="/incident" class="mm-active">
+                                        <i class="metismenu-icon pe-7s-diamond"></i>
+                                        Response Automation
+                                        
+                                    </a>
+                                </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>    
+                
+        
+        <!-- 화면에 보이는 부분 -->
+
+            <div class="app-main__outer">
+                <div class="app-main__inner">     
+                    
+                    <!-- 페이지 헤더 부분 -->
+                    <div class="app-page-title">
+                        <div class="page-title-wrapper">
+                            <div class="page-title-heading">
+                                <div class="page-title-icon">
+                                    <i class="pe-7s-car icon-gradient bg-mean-fruit">
+                                    </i>
+                                </div>
+                                <div style="font-weight:bold;">Initial Incident Response
+                                    <div  style="font-size:17px; font-weight:130; ">AWS는 클라우드 상에 있는 우리의 리소스들이 허가받지 않은 방식으로 동작하는 것이 있는지 항상 주시하고 있습니다. <br>우리는 Github에 의도치 않게 올린 secret key, 리소스를 취약하게 만드는 취약한 보안 설정들, 취약한 서비스, DDoS등으로 인한 보안 문제들로 인해 AWS 로부터 연락을 받을 수 있으며, 이러한 경우에는 준비된 침해사고 초기대응 절차에 따라 AWS 인프라에 대한 신속한 처리를 해야 합니다. <br>초기대응을 위한 방법에는 여러가지가 있을 수 있지만, 대표적으로는 아래와 같이 Mitigation, Snapshot, Memory Dump, Terminate의 네가지 단계에 따라 진행하게 됩니다.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="page-title-actions">
+                                <button type="button" data-toggle="tooltip" title="Example Tooltip" data-placement="bottom" class="btn-shadow mr-3 btn btn-dark">
+                                    <i class="fa fa-star"></i>
+                                </button>
+                                <div class="d-inline-block dropdown">
+                                    <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn-shadow dropdown-toggle btn btn-info">
+                                        <span class="btn-icon-wrapper pr-2 opacity-7">
+                                            <i class="fa fa-business-time fa-w-20"></i>
+                                        </span>
+                                        Buttons
+                                    </button>
+                                    <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
+                                        <ul class="nav flex-column">
+                                            <li class="nav-item">
+                                                <a href="javascript:void(0);" class="nav-link">
+                                                    <i class="nav-link-icon lnr-inbox"></i>
+                                                    <span>
+                                                        Inbox
+                                                    </span>
+                                                    <div class="ml-auto badge badge-pill badge-secondary">86</div>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="javascript:void(0);" class="nav-link">
+                                                    <i class="nav-link-icon lnr-book"></i>
+                                                    <span>
+                                                        Book
+                                                    </span>
+                                                    <div class="ml-auto badge badge-pill badge-danger">5</div>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="javascript:void(0);" class="nav-link">
+                                                    <i class="nav-link-icon lnr-picture"></i>
+                                                    <span>
+                                                        Picture
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a disabled href="javascript:void(0);" class="nav-link disabled">
+                                                    <i class="nav-link-icon lnr-file-empty"></i>
+                                                    <span>
+                                                        File Disabled
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>    
+                        </div>
+                    </div> 
+
+
+
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-lg-12">
+                                <div class="main-card mb-3 card">
+                                    <div class="card-body">
+                                        <div style="margin-bottom:30px; font-size :17px;">
+                                        
+                                        </div>
+                                       
+                                        <div class="card-header card-header-tab-animation">
+                                            <ul class="nav nav-justified">
+                                                <li class="nav-item"><a data-toggle="tab" href="#tab-eg115-0" class="active nav-link"><h3 class="app-sidebar__heading" style="font-size: 35px;">Mitigation</h3></a></li>
+                                                <li class="nav-item"><a data-toggle="tab" href="#tab-eg115-1" class="nav-link"><h3 class="app-sidebar__heading" style="font-size: 35px;">Snapshot</h3></a></li>
+                                                <li class="nav-item"><a data-toggle="tab" href="#tab-eg115-2" class="nav-link"><h3 class="app-sidebar__heading" style="font-size: 35px;">Memory Dump</h3></a></li>
+                                                <li class="nav-item"><a data-toggle="tab" href="#tab-eg115-3" class="nav-link"><h3 class="app-sidebar__heading" style="font-size: 35px;">Terminate</h3></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="card-body" style="margin-top : 20px;">
+                                            <div class="tab-content">
+                                                <div class="tab-pane active" id="tab-eg115-0" role="tabpanel">
+                                                
+                                                    <div class="progress">
+                                                        <div class="progress-bar progress-bar-animated progress-bar-striped" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">Mitigation</div>
+                                                        
+                                                    </div>
+                                                    <p style="margin-top:20px;font-size:17px;">Mitigation 단계에서는 인스턴스에 대해 증거 수집을 개시하기 전에 무결성을 위해 인스턴스를 격리합니다. 그 과정에서 밖으로 나가는 트래픽을 차단하고 들어오는 트래픽은 조사관의 ip를 제외하고 막게 되며 조사중임을 표시하기 위한 tagging 과정을 거치게 됩니다.</p>
+                                                    <div class="text-center">
+                                                    <button id="mitigation" class="mb-2 mr-2 btn btn-warning" style="font-weight:bold;font-size:17px;" data-toggle="modal" data-target=".bd-example-modal-lg">실행
+                                                    </button>
+
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane" id="tab-eg115-1" role="tabpanel">
+                                                
+                                                    <div class="progress">
+                                                        <div class="progress-bar progress-bar-animated progress-bar-striped" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">Mitigation</div>
+                                                        <div class="progress-bar progress-bar-animated bg-success progress-bar-striped" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">Snapshot</div>
+                                                        
+                                                    </div>
+                                                    <p style="margin-top:20px;font-size:17px;">Snapshot 단계에서는 포렌식 조사를 위해 침해사고가 일어난 것으로 의심되는 인스턴스의 스냅샷을 생성하여 휘발성 정보들이 날라가는 것을 방지합니다.</p>
+                                                    <div class="text-center">
+                                                    <button id="snapshot" class="mb-2 mr-2 btn btn-warning"style="font-weight:bold;font-size:17px;">실행
+                                                    </button>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane" id="tab-eg115-2" role="tabpanel">
+                                                    <div class="progress">
+                                                        <div class="progress-bar progress-bar-animated progress-bar-striped" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">Mitigation</div>
+                                                        <div class="progress-bar progress-bar-animated bg-success progress-bar-striped" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">Snapshot</div>
+                                                        <div class="progress-bar progress-bar-animated bg-warning progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">Memory Dump</div>
+                                                        
+                                                    </div>
+                                                    <p style="margin-top:20px;font-size:17px;">Memory Dump 단계에서는 margarita shotgun 이라는 오픈소스 메모리 조사 도구를 이용하여 인스턴스의 메모리 상태를 추출합니다.</p>
+                                                    <div class="text-center">
+                                                    <button id="memorydump" class="mb-2 mr-2 btn btn-warning"style="font-weight:bold;font-size:17px;">실행
+                                                    </button>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane" id="tab-eg115-3" role="tabpanel">
+                                                    <div class="progress" >
+                                                        <div class="progress-bar progress-bar-animated progress-bar-striped" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">Mitigation</div>
+                                                        <div class="progress-bar progress-bar-animated bg-success progress-bar-striped" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">Snapshot</div>
+                                                        <div class="progress-bar progress-bar-animated bg-warning progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">Memory Dump</div>
+                                                        <div class="progress-bar progress-bar-animated bg-danger progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">Terminate</div>
+                                                    </div>
+                                                    <p style="margin-top:20px;font-size:17px;">Terminate 단계에서는 초기대응을 끝내고 침해사고가 발생한 것으로 의심되는 인스턴스를 종료합니다.</p>
+                                                    <div class="text-center">
+                                                    <button id="terminate" class="mb-2 mr-2 btn btn-warning"style="font-weight:bold;font-size:17px;">실행
+                                                    </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+                                            
+                                            
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                            </div>                        
+                        </div>
+                    </div>
+
+                    
+                </div>                
+            </div>
+        
+            
+        
+        
+        </div>
+
+
+<script src="https://sdk.amazonaws.com/js/aws-sdk-2.783.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.5/xlsx.full.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+<script>
+/*
+    window.onload = function(){
+        $.ajax({
+        type: "POST",
+        url: "instancelist",
+        dataType: "json",
+        data: {
+            
+        },
+        // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
+        })
+        .done(function(data) {
+            console.log(data);
+            
+
+        })
+
+        // HTTP 요청이 실패하면 오류와 상태에 관한 정보가 fail() 메소드로 전달됨.
+
+        .fail(function(xhr, status, errorThrown) {
+
+            console.log(xhr,status,errorThrown);
+        })
+    };
+    */
+    document.getElementById("mitigation").onclick = function(){
+        
+        $.ajax({
+        type: "POST",
+        url: "mitigation",
+        dataType: "json",
+        data: {
+            
+        },
+        // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
+        })
+        .done(function(data) {
+            console.log(data);
+            document.getElementById("mitigation_result").append(data[0], data[1], data[2])
+           
+
+        })
+
+        // HTTP 요청이 실패하면 오류와 상태에 관한 정보가 fail() 메소드로 전달됨.
+
+        .fail(function(xhr, status, errorThrown) {
+
+            console.log(xhr,status,errorThrown);
+        })
+    };
+
+</script>
+
+</body>
+
+</html>
+
+
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Result</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div id="mitigation_result" class="modal-body">
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+               
+            </div>
+        </div>
+    </div>
+</div>

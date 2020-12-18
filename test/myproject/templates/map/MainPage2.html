@@ -1,0 +1,1428 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Analytics Dashboard - This is an example dashboard created using build-in elements and components.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
+    <meta name="msapplication-tap-highlight" content="no">
+    <!--
+    =========================================================
+    * ArchitectUI HTML Theme Dashboard - v1.0.0
+    =========================================================
+    * Product Page: https://dashboardpack.com
+    * Copyright 2019 DashboardPack (https://dashboardpack.com)
+    * Licensed under MIT (https://github.com/DashboardPack/architectui-html-theme-free/blob/master/LICENSE)
+    =========================================================
+    * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+    -->
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://uicdn.toast.com/grid/latest/tui-grid.css" />
+    <script src="https://uicdn.toast.com/grid/latest/tui-grid.js"></script>
+
+
+    <link rel="stylesheet" href="https://uicdn.toast.com/tui.chart/latest/tui-chart.min.css">
+    <script type='text/javascript' src='https://uicdn.toast.com/tui.code-snippet/v1.5.0/tui-code-snippet.min.js'></script>
+    <script type='text/javascript' src='https://uicdn.toast.com/tui.chart/latest/raphael.js'></script>
+    <script src="https://uicdn.toast.com/tui.chart/latest/tui-chart.min.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.18.0/dist/bootstrap-table.min.css">s
+</head>
+
+<body>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.783.0.min.js"></script>
+    <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
+
+
+
+
+        <div class="app-header header-shadow" class="hi">
+            <!-- 창 위쪽 헤더부분 div -->
+
+
+            <!--  로고 -->
+            <div class="app-header__logo">
+                <div class="logo-src"></div>
+                <div class="header__pane ml-auto">
+                    <div>
+                        <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ??? 뭐지???
+            <div class="app-header__mobile-menu">
+                <div>
+                    <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        -->
+
+
+            <!-- ????
+            <div class="app-header__menu">
+                <span>
+                    <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                        <span class="btn-icon-wrapper">
+                            <i class="fa fa-ellipsis-v fa-w-6"></i>
+                        </span>
+                    </button>
+                </span>
+            </div>    
+        -->
+
+            <!-- 헤더 콘텐츠 -->
+            <div class="app-header__content">
+
+
+
+
+                
+
+
+                <div class="app-header-right">
+                    <div class="header-btn-lg pr-0">
+                        <div class="widget-content p-0">
+                            <div class="widget-content-wrapper">
+                                <div class="widget-content-left">
+                                    <div class="btn-group">
+                                        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
+                                            <img width="42" class="rounded-circle" src="{% static 'images/avatars/1.jpg' %}" alt="">
+                                            <i class="fa fa-angle-down ml-2 opacity-8"></i>
+                                        </a>
+                                        <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
+                                            <button type="button" tabindex="0" class="dropdown-item">User Account</button>
+                                            <button type="button" tabindex="0" class="dropdown-item">Settings</button>
+                                            <h6 tabindex="-1" class="dropdown-header">Header</h6>
+                                            <button type="button" tabindex="0" class="dropdown-item">Actions</button>
+                                            <div tabindex="-1" class="dropdown-divider"></div>
+                                            <button type="button" tabindex="0" class="dropdown-item">Dividers</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="widget-content-left  ml-3 header-user-info">
+                                    <div class="widget-heading">
+                                        Gunha Jang
+                                    </div>
+                                    <div class="widget-subheading">
+                                        BOB digital forensic track
+                                    </div>
+                                </div>
+                                <div class="widget-content-right header-user-info ml-3">
+                                    <button type="button" class="btn-shadow p-1 btn btn-primary btn-sm show-toastr-example">
+                                        <i class="fa text-white fa-calendar pr-1 pl-1"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+        <!-- 메인 화면 -->
+        <div class="app-main">
+
+            <!-- sidebar -->
+            <div class="app-sidebar sidebar-shadow">
+                <div class="app-header__logo">
+                    <div class="logo-src"></div>
+                    <div class="header__pane ml-auto">
+                        <div>
+                            <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                                <span class="hamburger-box">
+                                    <span class="hamburger-inner"></span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+                
+                <div class="app-header__mobile-menu">
+                    <div>
+                        <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <div class="app-header__menu">
+                    <span>
+                        <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                            <span class="btn-icon-wrapper">
+                                <i class="fa fa-ellipsis-v fa-w-6"></i>
+                            </span>
+                        </button>
+                    </span>
+                </div>
+
+
+                <div class="scrollbar-sidebar">
+                    <div class="app-sidebar__inner">
+                        <ul class="vertical-nav-menu">
+                            <li class="app-sidebar__heading">Home</li>
+                            <li>
+                                <a href="/" class="mm-active">
+                                    <i class="metismenu-icon pe-7s-cloud"></i>
+                                    Main Page
+                                </a>
+                            </li>
+                            <li class="app-sidebar__heading">Logs</li>
+                            <li>
+                                <a href="/logs">
+                                    <i class="metismenu-icon pe-7s-look"></i>
+                                    Log Explorer
+
+                                </a>
+                                <a href="/query">
+                                    <i class="metismenu-icon pe-7s-display1"></i>
+                                    Threat Items
+                                </a>
+                                <a href="/baguni">
+                                    <i class="metismenu-icon pe-7s-date"></i>
+                                    Log Baguni
+                                </a>
+
+                            </li>
+                            <li class="app-sidebar__heading">Settings</li>
+                            <li>
+                                <a href="/regist">
+                                    <i class="metismenu-icon pe-7s-add-user"></i>
+                                    Registeration
+                                </a>
+                                <a href="/check">
+                                    <i class="metismenu-icon pe-7s-check"></i>
+                                    Settings Check
+                                </a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <!-- 화면에 보이는 부분 -->
+
+            <div class="app-main__outer">
+
+
+
+
+
+
+
+
+
+
+                <div class="app-main__inner">
+
+
+                    <!-- 페이지 헤더 부분 -->
+                    <div class="app-page-title">
+                        <div class="page-title-wrapper">
+                            <div class="page-title-heading">
+                                <div class="page-title-icon">
+                                    <i class="pe-7s-cloud icon-gradient bg-mean-fruit">
+                                    </i>
+                                </div>
+                                <div>Main
+                                    <div class="page-title-subheading">You can view your region map here
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+
+
+
+                    <!-- CUSTOM PART -->
+                    <!-- google chart 의 표 쓰기 -->
+                    <div class="row">
+                        <div class="col-md-12">
+
+
+                            <div class="col-lg-12">
+                                <div class="main-card mb-3 card">
+                                    <div class="card-body">
+
+                                        <h5 class="card-title">Regions</h5>
+                                        <meta charset="UTF-8">
+                                        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+                                        <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.3/xlsx.full.min.js"></script>
+                                        <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+                                        <script src="//cdn.amcharts.com/lib/4/charts.js"></script>
+                                        <script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
+                                        <script src="https://cdn.amcharts.com/lib/4/geodata/worldLow.js"></script>
+                                        <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+                                        <script>
+                                            function unescape(s) {
+                                                    s = ('' + s);
+                                                    s = s.replace(/&#x27;/g, '"');
+                                                    return (s);
+                                                }
+                                        </script>
+
+                                        <script>
+                                            var chart = am4core.create("chartdiv", "MapChart");
+                                            var a = [];
+                                            $(document).ready(() => {
+                                                //let chart = undefined
+
+                                                function updateMap() {
+                                                    //var chart = am4core.create("chartdiv",am4charts.MapChart);
+                                                    var imageSeries = chart.series.push(new am4maps.MapImageSeries());
+                                                    imageSeries.mapImages.template.propertyFields.longitude = "longitude";
+                                                    imageSeries.mapImages.template.propertyFields.latitude = "latitude";
+
+                                                    var imageSeries1 = chart.series.push(new am4maps.MapImageSeries());
+                                                    imageSeries1.mapImages.template.propertyFields.longitude = "longitude";
+                                                    imageSeries1.mapImages.template.propertyFields.latitude = "latitude";
+                                                    imageSeries1.data = [{
+                                                        "title": "us-east-2",
+                                                        "latitude": 40.367474,
+                                                        "longitude": -82.996216
+                                                    }, {
+                                                        "title": "us-east-1",
+                                                        "latitude": 37.926868,
+                                                        "longitude": -78.024902
+                                                    }, {
+                                                        "title": "us-west-1",
+                                                        "latitude": 36.778259,
+                                                        "longitude": -119.417931
+                                                    }, {
+                                                        "title": "us-west-2",
+                                                        "latitude": 44.000000,
+                                                        "longitude": -120.500000
+                                                    }, {
+                                                        "title": "af-south-1",
+                                                        "latitude": -33.918861,
+                                                        "longitude": 18.423300
+                                                    }, {
+                                                        "title": "ap-east-1",
+                                                        "latitude": 22.302711,
+                                                        "longitude": 114.177216
+                                                    }, {
+                                                        "title": "ap-south-1",
+                                                        "latitude": 19.076090,
+                                                        "longitude": 72.877426
+                                                    }, {
+                                                        "title": "ap-northeast-3",
+                                                        "latitude": 34.669529,
+                                                        "longitude": 135.497009
+                                                    }, {
+                                                        "title": "ap-northeast-2",
+                                                        "latitude": 37.532600,
+                                                        "longitude": 127.024612
+                                                    }, {
+                                                        "title": "ap-southeast-1",
+                                                        "latitude": 1.290270,
+                                                        "longitude": 103.851959
+                                                    }, {
+                                                        "title": "ap-southeast-2",
+                                                        "latitude": -33.865143,
+                                                        "longitude": 151.209900
+                                                    }, {
+                                                        "title": "ap-northeast-1",
+                                                        "latitude": 35.6785,
+                                                        "longitude": 139.6823,
+                                                        "url": "http://www.google.co.jp"
+                                                    }, {
+                                                        "title": "ca-central-1",
+                                                        "latitude": 58.700212,
+                                                        "longitude": -105.164983
+                                                    }, {
+                                                        "title": "eu-central-1",
+                                                        "latitude": 50.110924,
+                                                        "longitude": 8.682127
+                                                    }, {
+                                                        "title": "eu-west-1",
+                                                        "latitude": 53.350140,
+                                                        "longitude": -6.266155
+                                                    }, {
+                                                        "title": "eu-west-2",
+                                                        "latitude": 51.5002,
+                                                        "longitude": -0.1262,
+                                                        "url": "http://www.google.co.uk"
+                                                    }, {
+                                                        "title": "eu-south-1",
+                                                        "latitude": 45.464664,
+                                                        "longitude": 9.188540
+                                                    }, {
+                                                        "title": "eu-west-3",
+                                                        "latitude": 48.8567,
+                                                        "longitude": 2.3510
+                                                    }, {
+                                                        "title": "eu-north-1",
+                                                        "latitude": 59.334591,
+                                                        "longitude": 18.063240
+                                                    }, {
+                                                        "title": "me-south-1",
+                                                        "latitude": 26.156258,
+                                                        "longitude": 50.400505
+                                                    }, {
+                                                        "title": "sa-east-1",
+                                                        "latitude": -23.533773,
+                                                        "longitude": -46.625290
+                                                    }];
+
+                                                    var b = [];
+                                                    var jl = Object.keys(imageSeries1.data).length;
+                                                    for (var k = 0; k < jl; k++) {
+                                                        //document.writeln(a.includes(imageSeries.data[k].title)+" "+imageSeries.data[k].title);
+                                                        if (a.includes(imageSeries1.data[k].title)) {
+                                                            //alert(imageSeries1.data[k].title+"0000");
+                                                            b.push(k);
+                                                        } else {
+                                                            //alert(imageSeries1.data[k].title+"XXXX");
+                                                            continue;
+                                                        }
+                                                    }
+
+                                                    var jl2 = b.length;
+
+                                                    for (var h = 0; h < jl2; h++) {
+                                                        var c = b[h];
+                                                        //alert(c);
+                                                        imageSeries.data.push(imageSeries1.data[c]);
+                                                    }
+                                                    chart.events.on("ready", updateCustomMarkers);
+                                                    chart.events.on("mappositionchanged", updateCustomMarkers);
+
+                                                    // add events to recalculate map position when the map is moved or zoomed
+                                                    //chart.events.on( "ready", updateCustomMarkers );
+                                                    //chart.events.on( "mappositionchanged", updateCustomMarkers );
+
+                                                    // this function will take current images on the map and create HTML elements for them
+                                                    function updateCustomMarkers(event) {
+
+                                                        // go through all of the images
+                                                        imageSeries.mapImages.each(function(image) {
+                                                            // check if it has corresponding HTML element
+                                                            if (!image.dummyData || !image.dummyData.externalElement) {
+                                                                // create onex
+                                                                image.dummyData = {
+                                                                    externalElement: createCustomMarker(image)
+                                                                };
+                                                            }
+
+                                                            // reposition the element accoridng to coordinates
+                                                            var xy = chart.geoPointToSVG({
+                                                                longitude: image.longitude,
+                                                                latitude: image.latitude
+                                                            });
+                                                            image.dummyData.externalElement.style.top = xy.y + 'px';
+                                                            image.dummyData.externalElement.style.left = xy.x + 'px';
+                                                        });
+
+                                                    }
+
+                                                    // this function creates and returns a new marker element
+                                                    function createCustomMarker(image) {
+
+                                                        chart = image.dataItem.component.chart;
+
+                                                        // create holder
+                                                        var holder = document.createElement('div');
+                                                        holder.className = 'map-marker';
+                                                        holder.title = image.dataItem.dataContext.title;
+                                                        holder.style.position = 'absolute';
+
+                                                        // maybe add a link to it?
+                                                        if (undefined != image.url) {
+                                                            holder.onclick = function() {
+                                                                window.location.href = image.url;
+                                                            };
+                                                            holder.className += ' map-clickable';
+                                                        }
+
+                                                        // create dot
+                                                        var dot = document.createElement('div');
+                                                        dot.className = 'dot';
+                                                        holder.appendChild(dot);
+
+                                                        // create pulse
+                                                        var pulse = document.createElement('div');
+                                                        pulse.className = 'pulse';
+                                                        holder.appendChild(pulse);
+
+                                                        // append the marker to the map container
+                                                        chart.svgContainer.htmlElement.appendChild(holder);
+
+                                                        return holder;
+                                                    }
+                                                }
+
+                                                function unescape(s) {
+                                                    s = ('' + s);
+                                                    s = s.replace(/&#x27;/g, '');
+                                                    return (s);
+                                                }
+
+                                                function unescape2(s) {
+                                                    s = ("" + s);
+                                                    s = s.replace(/'/g, '"');
+                                                    return (s);
+                                                }
+
+                                                function unescape3(s) {
+                                                    s = ('' + s);
+                                                    s = s.replace(/False/g, 'false');
+                                                    s = s.replace(/True/g, 'true');
+                                                    return (s);
+                                                }
+                                                function unescape4(s) {
+                                                    s = ('' + s);
+                                                    //s = s.replace(/[/g, '');
+                                                    //s = s.replace(/"/g, '');
+                                                    s = s.replace(/\[/g, '');
+                                                    s = s.replace(/\]/g, '');
+                                                    return (s);
+                                                }
+                                                var replaceAt = function(input, index, character) {
+                                                    return input.substr(0, index) + character + input.substr(index + character.length);
+                                                }
+
+                                                function regions(x) {
+
+                                                    //var x = sheet;
+                                                    //x=JSON.parse(x);
+                                                    console.log(typeof(x));
+
+                                                    for (var i = 0; i < x.length; i++) {
+                                                        /*if (x[i].EC2 == true) {
+                                                            a.push(x[i].RG);
+                                                        } else if (x[i].S3 == true) {
+                                                            a.push(x[i].RG);
+                                                        } else if (x[i].RDS == true) {
+                                                            a.push(x[i].RG);
+                                                        } else {
+                                                            continue;
+                                                        }*/
+                                                        a.push(x[i])
+                                                    }
+                                                    console.log(a);
+                                                    updateMap();
+                                                }
+
+
+                                                var input1 = ("{{object}}");
+                                                input1 = unescape(input1);
+                                                input1 = unescape4(input1);
+                                                //console.log(typeof(input1));
+                                                //var inputlength = input1.length - 1;
+                                        
+                                                console.log(input1);
+                                                //var input2 = JSON.parse(input1);
+                                                //input1=eval(input1);
+                                                const input2 = input1.split(', ')
+                                                console.log(typeof(input2));
+                                                regions(input2);
+                                            })
+                                        </script>
+                                        <div id="regionshow"></div>
+
+
+                                        <!-- Styles -->
+                                        <style>
+                                            #chartdiv {
+                                                width: 100%;
+                                                height: 500px;
+                                                overflow: hidden;
+                                                position: relative;
+                                            }
+
+                                            .map-marker {
+                                                /* adjusting for the marker dimensions
+                                            so that it is centered on coordinates */
+                                                margin-left: -8px;
+                                                margin-top: -8px;
+                                                box-sizing: border-box;
+                                            }
+
+                                            .map-marker.map-clickable {
+                                                cursor: pointer;
+                                            }
+
+                                            .pulse {
+                                                width: 10px;
+                                                height: 10px;
+                                                border: 5px solid #c01212;
+                                                -webkit-border-radius: 30px;
+                                                -moz-border-radius: 30px;
+                                                border-radius: 30px;
+                                                background-color: #716f42;
+                                                z-index: 10;
+                                                position: absolute;
+                                                box-sizing: border-box;
+                                            }
+
+                                            .map-marker .dot {
+                                                border: 10px solid #fa0505;
+                                                background: transparent;
+                                                -webkit-border-radius: 60px;
+                                                -moz-border-radius: 60px;
+                                                border-radius: 60px;
+                                                height: 50px;
+                                                width: 50px;
+                                                -webkit-animation: pulse 3s ease-out;
+                                                -moz-animation: pulse 3s ease-out;
+                                                animation: pulse 3s ease-out;
+                                                -webkit-animation-iteration-count: infinite;
+                                                -moz-animation-iteration-count: infinite;
+                                                animation-iteration-count: infinite;
+                                                position: absolute;
+                                                top: -20px;
+                                                left: -20px;
+                                                z-index: 1;
+                                                opacity: 0;
+                                                box-sizing: border-box;
+                                            }
+
+                                            @-moz-keyframes pulse {
+                                                0% {
+                                                    -moz-transform: scale(0);
+                                                    opacity: 0.0;
+                                                }
+
+                                                25% {
+                                                    -moz-transform: scale(0);
+                                                    opacity: 0.1;
+                                                }
+
+                                                50% {
+                                                    -moz-transform: scale(0.1);
+                                                    opacity: 0.3;
+                                                }
+
+                                                75% {
+                                                    -moz-transform: scale(0.5);
+                                                    opacity: 0.5;
+                                                }
+
+                                                100% {
+                                                    -moz-transform: scale(1);
+                                                    opacity: 0.0;
+                                                }
+                                            }
+
+                                            @-webkit-keyframes pulse {
+                                                0% {
+                                                    -webkit-transform: scale(0);
+                                                    opacity: 0.0;
+                                                }
+
+                                                25% {
+                                                    -webkit-transform: scale(0);
+                                                    opacity: 0.1;
+                                                }
+
+                                                50% {
+                                                    -webkit-transform: scale(0.1);
+                                                    opacity: 0.3;
+                                                }
+
+                                                75% {
+                                                    -webkit-transform: scale(0.5);
+                                                    opacity: 0.5;
+                                                }
+
+                                                100% {
+                                                    -webkit-transform: scale(1);
+                                                    opacity: 0.0;
+                                                }
+                                            }
+                                        </style>
+
+                                        <!-- Resources -->
+                                        <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+                                        <script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
+                                        <script src="https://cdn.amcharts.com/lib/4/geodata/worldLow.js"></script>
+                                        <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+
+                                        <!-- Chart code -->
+                                        <script>
+                                            am4core.ready(function() {
+
+                                                // Themes begin
+                                                am4core.useTheme(am4themes_animated);
+                                                // Themes end
+
+                                                // Create map instance
+                                                chart = am4core.create("chartdiv", am4maps.MapChart);
+
+                                                // Set map definition
+                                                chart.geodata = am4geodata_worldLow;
+
+                                                // Set projection
+                                                chart.projection = new am4maps.projections.Miller();
+
+                                                // Create map polygon series
+                                                var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+
+                                                // Exclude Antartica
+                                                polygonSeries.exclude = ["AQ"];
+
+                                                // Make map load polygon (like country names) data from GeoJSON
+                                                polygonSeries.useGeodata = true;
+
+                                                // Configure series
+                                                var polygonTemplate = polygonSeries.mapPolygons.template;
+                                                polygonTemplate.tooltipText = "{name}";
+                                                polygonTemplate.fill = chart.colors.getIndex(0).lighten(0.5);
+
+                                                // Create hover state and set alternative fill color
+                                                var hs = polygonTemplate.states.create("hover");
+                                                hs.properties.fill = chart.colors.getIndex(0);
+
+                                            }); // end am4core.ready()
+                                        </script>
+
+                                        <!-- HTML -->
+                                        <div id="chartdiv"></div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                   
+                    
+                    <div class="col-lg-4" style="float:left;">
+                                <div class="main-card mb-3 card">
+                                    <div class="card-body"><div class="badge badge-danger">High</div><h5 class="card-title">Threat Detected</h5><td class="text-center"></td>
+                                    
+                                        <script>
+                                            //var output1 = ("{{output}}");
+                                            //output1 = unescape(output1);
+                        
+                                            //var output2 = JSON.parse(output1);
+                                            //console.log(output2);
+                                            //var outputlength=output2.length;
+                                                                                      
+                                        </script>
+
+                                        <table id="table"> <thead> <tr> <!-- JSON 값과 매칭될 field를 명시 --> <th data-field="event">event</th> <th data-field="count">count</th> <th data-field="details">details</th> </tr> </thead> <tbody> </tbody> </table>
+                        
+                                        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> 
+                                        <!-- bootstrap 가져오기 --> 
+                                        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> 
+                                        <!-- bootstrap table 가져오기 -->
+                                        <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
+                                        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  
+                                        <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css">
+                                        <script>
+                                            //console.log(output2);
+                                            var countlist=[];
+                                            var countlistH=[];
+                                            var countlistM=[];
+                                            var countlistL=[];
+                                            let q=`<button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm" onClick="location.href='http://localhost:8000/query/0'">Details</button>`;
+                                            let q1=`<button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm" onClick="location.href='http://localhost:8000/query/1'">Details</button>`;
+                                            let q2=`<button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm" onClick="location.href='http://localhost:8000/query/2'">Details</button>`;
+                                            let q3=`<button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm" onClick="location.href='http://localhost:8000/query/3'">Details</button>`;
+                                            let q4=`<button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm" onClick="location.href='http://localhost:8000/query/4'">Details</button>`;
+                                            let q5=`<button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm" onClick="location.href='http://localhost:8000/query/5'">Details</button>`;
+                                            let q6=`<button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm" onClick="location.href='http://localhost:8000/query/6'">Details</button>`;
+                                            let q7=`<button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm" onClick="location.href='http://localhost:8000/query/7'">Details</button>`;
+                                            let q8=`<button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm" onClick="location.href='http://localhost:8000/query/8'">Details</button>`;
+                                            let q9=`<button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm" onClick="location.href='http://localhost:8000/query/8'">Details</button>`;
+                                            let q10=`<button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm" onClick="location.href='http://localhost:8000/query/10'">Details</button>`;
+                                            let q11=`<button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm" onClick="location.href='http://localhost:8000/query/11'">Details</button>`;
+                                            let q12=`<button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm" onClick="location.href='http://localhost:8000/query/12'">Details</button>`;
+                                            let q13=`<button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm" onClick="location.href='http://localhost:8000/query/13'">Details</button>`;
+                                            let q14=`<button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm" onClick="location.href='http://localhost:8000/query/14'">Details</button>`;
+                                            let q15=`<button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm" onClick="location.href='http://localhost:8000/query/15'">Details</button>`;
+                                            let q16=`<button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm" onClick="location.href='http://localhost:8000/query/16'">Details</button>`;
+                                            let q17=`<button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm" onClick="location.href='http://localhost:8000/query/17'">Details</button>`;
+                                            let q18=`<button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm" onClick="location.href='http://localhost:8000/query/18'">Details</button>`;
+                                            let q19=`<button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm" onClick="location.href='http://localhost:8000/query/19'">Details</button>`;
+                                            let q20=`<button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm" onClick="location.href='http://localhost:8000/query/20'">Details</button>`;
+                                            let q21=`<button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm" onClick="location.href='http://localhost:8000/query/21'">Details</button>`;
+                                            let q22=`<button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm" onClick="location.href='http://localhost:8000/query/22'">Details</button>`;
+                                            let q23=`<button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm" onClick="location.href='http://localhost:8000/query/23'">Details</button>`;
+                                            let q24=`<button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm" onClick="location.href='http://localhost:8000/query/24'">Details</button>`;
+                                            let q25=`<button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm" onClick="location.href='http://localhost:8000/query/25'">Details</button>`;
+                                            let q26=`<button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm" onClick="location.href='http://localhost:8000/query/26'">Details</button>`;
+                                            let q27=`<button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm" onClick="location.href='http://localhost:8000/query/27'">Details</button>`;
+                                            let q28=`<button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm" onClick="location.href='http://localhost:8000/query/28'">Details</button>`;
+                                            let q29=`<button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm" onClick="location.href='http://localhost:8000/query/29'">Details</button>`;
+                                            let q30=`<button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm" onClick="location.href='http://localhost:8000/query/30'">Details</button>`;
+                                            let q31=`<button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm" onClick="location.href='http://localhost:8000/query/31'">Details</button>`;
+                                            let q32=`<button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm" onClick="location.href='http://localhost:8000/query/32'">Details</button>`;
+                                            let q33=`<button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm" onClick="location.href='http://localhost:8000/query/33'">Details</button>`;
+                                            let q34=`<button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm" onClick="location.href='http://localhost:8000/query/34'">Details</button>`;
+                                            let q35=`<button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm" onClick="location.href='http://localhost:8000/query/35'">Details</button>`;
+
+
+
+                                            var xhr = new XMLHttpRequest();
+                                                xhr.onreadystatechange = function() { // 요청에 대한 콜백
+                                                if (xhr.readyState === xhr.DONE) { // 요청이 완료되면
+                                                    if (xhr.status === 200 || xhr.status === 201) {
+                                                        var result=JSON.parse(xhr.responseText);
+                                                        if(result.total>0){
+                                                            countlistH.push({'event':"버킷목록검색",'count':result.total,'details': q});
+                                                            //console.log(countlist);
+                                                        }            
+                                                    } else {
+                                                    console.error(xhr.responseText);
+                                                    }
+                                                }
+                                                };
+                                                xhr.open('get', 'https://threatitem.s3.ap-northeast-2.amazonaws.com/S3/0'); // 메소드와 주소 설정
+                                                xhr.send(); // 요청 전송
+                                            var xhr1 = new XMLHttpRequest();
+                                                xhr1.onreadystatechange = async function() { // 요청에 대한 콜백
+                                                if (xhr1.readyState === xhr1.DONE) { // 요청이 완료되면
+                                                    if (xhr1.status === 200 || xhr1.status === 201) {
+                                                        var result1=JSON.parse(xhr1.responseText);
+                                                        if(result1.total>0){
+                                                            countlistL.push({'event':"S3 데이터 생성",'count':result1.total,'details': q1});
+                                                            await wrt();
+                                                            await wrt2();
+                                                            await wrt3();
+                                                        }            
+                                                    } else {
+                                                    console.error(xhr1.responseText);
+                                                    }
+                                                }
+                                                };
+                                                xhr1.open('get', 'https://threatitem.s3.ap-northeast-2.amazonaws.com/S3/1'); // 메소드와 주소 설정
+                                                xhr1.send(); // 요청 전송
+                                             var xhr2 = new XMLHttpRequest();
+                                                xhr2.onreadystatechange = function() { // 요청에 대한 콜백
+                                                if (xhr2.readyState === xhr2.DONE) { // 요청이 완료되면
+                                                    if (xhr2.status === 200 || xhr2.status === 201) {
+                                                        var result2=JSON.parse(xhr2.responseText);
+                                                        if(result2.total>0){
+                                                            countlistH.push({'event':" S3 데이터 삭제",'count':result2.total,'details': q2});
+                                                        }            
+                                                    } else {
+                                                    console.error(xhr2.responseText);
+                                                    }
+                                                }
+                                                };
+                                                xhr2.open('get', 'https://threatitem.s3.ap-northeast-2.amazonaws.com/S3/2'); // 메소드와 주소 설정
+                                                xhr2.send(); // 요청 전송
+                                            
+                                            
+                                            var xhr3 = new XMLHttpRequest();
+                                                xhr3.onreadystatechange = function() { // 요청에 대한 콜백
+                                                if (xhr3.readyState === xhr3.DONE) { // 요청이 완료되면
+                                                    if (xhr3.status === 200 || xhr3.status === 201) {
+                                                        var result3=JSON.parse(xhr3.responseText);
+                                                        if(result3.total>0){
+                                                            countlistH.push({'event':"권한이 없는 IAM 개체의 S3 API 호출",'count':result3.total,'details': q3});
+                                                        }            
+                                                    } else {
+                                                    console.error(xhr3.responseText);
+                                                    }
+                                                }
+                                                };
+                                                xhr3.open('get', 'https://threatitem.s3.ap-northeast-2.amazonaws.com/S3/3'); // 메소드와 주소 설정
+                                                xhr3.send(); // 요청 전송
+                                            var xhr4 = new XMLHttpRequest();
+                                                xhr4.onreadystatechange = function() { // 요청에 대한 콜백
+                                                if (xhr4.readyState === xhr4.DONE) { // 요청이 완료되면
+                                                    if (xhr4.status === 200 || xhr4.status === 201) {
+                                                        var result4=JSON.parse(xhr4.responseText);
+                                                        if(result4.total>0){
+                                                            countlistH.push({'event':"서버 액세스 로깅 비활성화",'count':result4.total,'details': q4});
+                                                        }            
+                                                    } else {
+                                                    console.error(xhr4.responseText);
+                                                    }
+                                                }
+                                                };
+                                                xhr4.open('get', 'https://threatitem.s3.ap-northeast-2.amazonaws.com/S3/4'); // 메소드와 주소 설정
+                                                xhr4.send(); // 요청 전송
+                                            var xhr5 = new XMLHttpRequest();
+                                                xhr5.onreadystatechange = function() { // 요청에 대한 콜백
+                                                if (xhr5.readyState === xhr5.DONE) { // 요청이 완료되면
+                                                    if (xhr5.status === 200 || xhr5.status === 201) {
+                                                        var result5=JSON.parse(xhr5.responseText);
+                                                        if(result5.total>0){
+                                                            countlistM.push({'event':"버킷 또는 객체 권한 변경",'count':result5.total,'details': q5});
+                                                        }            
+                                                    } else {
+                                                    console.error(xhr5.responseText);
+                                                    }
+                                                }
+                                                };
+                                                xhr5.open('get', 'https://threatitem.s3.ap-northeast-2.amazonaws.com/S3/5'); // 메소드와 주소 설정
+                                                xhr5.send();
+                                            var xhr6 = new XMLHttpRequest();
+                                                xhr6.onreadystatechange = function() { // 요청에 대한 콜백
+                                                if (xhr6.readyState === xhr6.DONE) { // 요청이 완료되면
+                                                    if (xhr6.status === 200 || xhr6.status === 201) {
+                                                        var result6=JSON.parse(xhr6.responseText);
+                                                        if(result6.total>0){
+                                                            countlistM.push({'event':"버킷정책변경",'count':result6.total,'details': q6});
+                                                        }            
+                                                    } else {
+                                                    console.error(xhr6.responseText);
+                                                    }
+                                                }
+                                                };
+                                                xhr6.open('get', 'https://threatitem.s3.ap-northeast-2.amazonaws.com/S3/6'); // 메소드와 주소 설정
+                                                xhr6.send(); // 요청 전송
+                                            var xhr7 = new XMLHttpRequest();
+                                                xhr7.onreadystatechange = function() { // 요청에 대한 콜백
+                                                if (xhr7.readyState === xhr7.DONE) { // 요청이 완료되면
+                                                    if (xhr7.status === 200 || xhr7.status === 201) {
+                                                        var result7=JSON.parse(xhr7.responseText);
+                                                        if(result7.total>0){
+                                                            countlistM.push({'event':"침투 테스트 시스템에서의 S3 API 호출",'count':result7.total,'details': q7});
+                                                        }            
+                                                    } else {
+                                                    console.error(xhr7.responseText);
+                                                    }
+                                                }
+                                                };
+                                                xhr7.open('get', 'https://threatitem.s3.ap-northeast-2.amazonaws.com/S3/7'); // 메소드와 주소 설정
+                                                xhr7.send(); // 요청 전송
+                                            var xhr8 = new XMLHttpRequest();
+                                                xhr8.onreadystatechange = function() { // 요청에 대한 콜백
+                                                if (xhr8.readyState === xhr8.DONE) { // 요청이 완료되면
+                                                    if (xhr8.status === 200 || xhr8.status === 201) {
+                                                        var result8=JSON.parse(xhr8.responseText);
+                                                        if(result8.total>0){
+                                                            countlistM.push({'event':"침투 테스트 시스템에서의 IAM API 호출",'count':result8.total,'details': q8});
+                                                        }            
+                                                    } else {
+                                                    console.error(xhr8.responseText);
+                                                    }
+                                                }
+                                                };
+                                                xhr8.open('get', 'https://threatitem.s3.ap-northeast-2.amazonaws.com/IAM/8'); // 메소드와 주소 설정
+                                                xhr8.send();
+                                            var xhr9 = new XMLHttpRequest();
+                                                xhr9.onreadystatechange = function() { // 요청에 대한 콜백
+                                                if (xhr9.readyState === xhr9.DONE) { // 요청이 완료되면
+                                                    if (xhr9.status === 200 || xhr9.status === 201) {
+                                                        var result9=JSON.parse(xhr9.responseText);
+                                                        if(result9.total>0){
+                                                            countlistM.push({'event':"네트워크 액세스 권한 변경",'count':result9.total,'details': q9});
+                                                        }            
+                                                    } else {
+                                                    console.error(xhr9.responseText);
+                                                    }
+                                                }
+                                                };
+                                                xhr9.open('get', 'https://threatitem.s3.ap-northeast-2.amazonaws.com/IAM/9'); // 메소드와 주소 설정
+                                                xhr9.send();
+                                            var xhr10 = new XMLHttpRequest();
+                                                xhr10.onreadystatechange = function() { // 요청에 대한 콜백
+                                                if (xhr10.readyState === xhr10.DONE) { // 요청이 완료되면
+                                                    if (xhr10.status === 200 || xhr10.status === 201) {
+                                                        var result10=JSON.parse(xhr10.responseText);
+                                                        if(result10.total>0){
+                                                            countlistM.push({'event':"CloudTrail 로깅 중단, 기존 로그 삭제",'count':result10.total,'details': q10});
+                                                        }            
+                                                    } else {
+                                                    console.error(xhr10.responseText);
+                                                    }
+                                                }
+                                                };
+                                                xhr10.open('get', 'https://threatitem.s3.ap-northeast-2.amazonaws.com/IAM/10'); // 메소드와 주소 설정
+                                                xhr10.send();
+                                            var xhr11 = new XMLHttpRequest();
+                                                xhr11.onreadystatechange = function() { // 요청에 대한 콜백
+                                                if (xhr11.readyState === xhr11.DONE) { // 요청이 완료되면
+                                                    if (xhr11.status === 200 || xhr11.status === 201) {
+                                                        var result11=JSON.parse(xhr11.responseText);
+                                                        if(result11.total>0){
+                                                            countlistM.push({'event':"IAM 사용자, 그룹 정책 등 추가/변경/삭제",'count':result11.total,'details': q11});
+                                                        }            
+                                                    } else {
+                                                    console.error(xhr11.responseText);
+                                                    }
+                                                }
+                                                };
+                                                xhr11.open('get', 'https://threatitem.s3.ap-northeast-2.amazonaws.com/IAM/11'); // 메소드와 주소 설정
+                                                xhr11.send();
+                                            var xhr12 = new XMLHttpRequest();
+                                                xhr12.onreadystatechange = function() { // 요청에 대한 콜백
+                                                if (xhr12.readyState === xhr12.DONE) { // 요청이 완료되면
+                                                    if (xhr12.status === 200 || xhr12.status === 201) {
+                                                        var result12=JSON.parse(xhr12.responseText);
+                                                        if(result12.total>0){
+                                                            countlistM.push({'event':"리소스 보안 액세스 정책 변경",'count':result12.total,'details': q12});
+                                                        }            
+                                                    } else {
+                                                    console.error(xhr12.responseText);
+                                                    }
+                                                }
+                                                };
+                                                xhr12.open('get', 'https://threatitem.s3.ap-northeast-2.amazonaws.com/IAM/12'); // 메소드와 주소 설정
+                                                xhr12.send();
+                                            var xhr13 = new XMLHttpRequest();
+                                                xhr13.onreadystatechange = function() { // 요청에 대한 콜백
+                                                if (xhr13.readyState === xhr13.DONE) { // 요청이 완료되면
+                                                    if (xhr13.status === 200 || xhr13.status === 201) {
+                                                        var result13=JSON.parse(xhr13.responseText);
+                                                        if(result13.total>0){
+                                                            countlistL.push({'event':"루트 계정으로 API 호출",'count':result13.total,'details': q13});
+                                                        }            
+                                                    } else {
+                                                    console.error(xhr13.responseText);
+                                                    }
+                                                }
+                                                };
+                                                xhr13.open('get', 'https://threatitem.s3.ap-northeast-2.amazonaws.com/IAM/13'); // 메소드와 주소 설정
+                                                xhr13.send();
+                                            var xhr14 = new XMLHttpRequest();
+                                                xhr14.onreadystatechange = function() { // 요청에 대한 콜백
+                                                if (xhr14.readyState === xhr14.DONE) { // 요청이 완료되면
+                                                    if (xhr14.status === 200 || xhr14.status === 201) {
+                                                        var result14=JSON.parse(xhr14.responseText);
+                                                        if(result14.total>0){
+                                                            countlistM.push({'event':"컴퓨팅 리소스 시작",'count':result14.total,'details': q14});
+                                                        }            
+                                                    } else {
+                                                    console.error(xhr14.responseText);
+                                                    }
+                                                }
+                                                };
+                                                xhr14.open('get', 'https://threatitem.s3.ap-northeast-2.amazonaws.com/IAM/14'); // 메소드와 주소 설정
+                                                xhr14.send();
+                                            var xhr15 = new XMLHttpRequest();
+                                                xhr15.onreadystatechange = function() { // 요청에 대한 콜백
+                                                if (xhr15.readyState === xhr15.DONE) { // 요청이 완료되면
+                                                    if (xhr15.status === 200 || xhr15.status === 201) {
+                                                        var result15=JSON.parse(xhr15.responseText);
+                                                        if(result15.total>0){
+                                                            countlistL.push({'event':" DB 목록 검색",'count':result15.total,'details': q15});
+                                                        }            
+                                                    } else {
+                                                    console.error(xhr15.responseText);
+                                                    }
+                                                }
+                                                };
+                                                xhr15.open('get', 'https://threatitem.s3.ap-northeast-2.amazonaws.com/RDS/15'); // 메소드와 주소 설정
+                                                xhr15.send();
+                                            var xhr16 = new XMLHttpRequest();
+                                                xhr16.onreadystatechange = function() { // 요청에 대한 콜백
+                                                if (xhr16.readyState === xhr16.DONE) { // 요청이 완료되면
+                                                    if (xhr16.status === 200 || xhr16.status === 201) {
+                                                        var result16=JSON.parse(xhr16.responseText);
+                                                        if(result16.total>0){
+                                                            countlistM.push({'event':"DB 내의 데이터 삭제",'count':result16.total,'details': q16});
+                                                        }            
+                                                    } else {
+                                                    console.error(xhr16.responseText);
+                                                    }
+                                                }
+                                                };
+                                                xhr16.open('get', 'https://threatitem.s3.ap-northeast-2.amazonaws.com/RDS/16'); // 메소드와 주소 설정
+                                                xhr16.send();
+                                            var xhr17 = new XMLHttpRequest();
+                                                xhr17.onreadystatechange = function() { // 요청에 대한 콜백
+                                                if (xhr17.readyState === xhr17.DONE) { // 요청이 완료되면
+                                                    if (xhr17.status === 200 || xhr17.status === 201) {
+                                                        var result17=JSON.parse(xhr17.responseText);
+                                                        if(result17.total>0){
+                                                            countlistM.push({'event':"DB 사용자 추가",'count':result17.total,'details': q17});
+                                                        }            
+                                                    } else {
+                                                    console.error(xhr17.responseText);
+                                                    }
+                                                }
+                                                };
+                                                xhr17.open('get', 'https://threatitem.s3.ap-northeast-2.amazonaws.com/RDS/17'); // 메소드와 주소 설정
+                                                xhr17.send();
+                                            var xhr18 = new XMLHttpRequest();
+                                                xhr18.onreadystatechange = function() { // 요청에 대한 콜백
+                                                if (xhr18.readyState === xhr18.DONE) { // 요청이 완료되면
+                                                    if (xhr18.status === 200 || xhr18.status === 201) {
+                                                        var result18=JSON.parse(xhr18.responseText);
+                                                        if(result18.total>0){
+                                                            countlistM.push({'event':"DB 사용자 권한 변경",'count':result18.total,'details': q18});
+                                                        }            
+                                                    } else {
+                                                    console.error(xhr18.responseText);
+                                                    }
+                                                }
+                                                };
+                                                xhr18.open('get', 'https://threatitem.s3.ap-northeast-2.amazonaws.com/RDS/18'); // 메소드와 주소 설정
+                                                xhr18.send();
+                                            var xhr19 = new XMLHttpRequest();
+                                                xhr19.onreadystatechange = function() { // 요청에 대한 콜백
+                                                if (xhr19.readyState === xhr19.DONE) { // 요청이 완료되면
+                                                    if (xhr19.status === 200 || xhr19.status === 201) {
+                                                        var result19=JSON.parse(xhr19.responseText);
+                                                        if(result19.total>0){
+                                                            countlistM.push({'event':"권한이 없는 IAM 개체의 RDS API 호출",'count':result19.total,'details': q19});
+                                                        }            
+                                                    } else {
+                                                    console.error(xhr19.responseText);
+                                                    }
+                                                }
+                                                };
+                                                xhr19.open('get', 'https://threatitem.s3.ap-northeast-2.amazonaws.com/RDS/19'); // 메소드와 주소 설정
+                                                xhr19.send();
+                                            var xhr20 = new XMLHttpRequest();
+                                                xhr20.onreadystatechange = function() { // 요청에 대한 콜백
+                                                if (xhr20.readyState === xhr20.DONE) { // 요청이 완료되면
+                                                    if (xhr20.status === 200 || xhr20.status === 201) {
+                                                        var result20=JSON.parse(xhr20.responseText);
+                                                        if(result20.total>0){
+                                                            countlistM.push({'event':"RDS 로깅 비활성화(파라미터 그룹 수정)",'count':result20.total,'details': q20});
+                                                        }            
+                                                    } else {
+                                                    console.error(xhr20.responseText);
+                                                    }
+                                                }
+                                                };
+                                                xhr20.open('get', 'https://threatitem.s3.ap-northeast-2.amazonaws.com/RDS/20'); // 메소드와 주소 설정
+                                                xhr20.send();
+                                            var xhr21 = new XMLHttpRequest();
+                                                xhr21.onreadystatechange = function() { // 요청에 대한 콜백
+                                                if (xhr21.readyState === xhr21.DONE) { // 요청이 완료되면
+                                                    if (xhr21.status === 200 || xhr21.status === 201) {
+                                                        var result21=JSON.parse(xhr21.responseText);
+                                                        if(result21.total>0){
+                                                            countlistM.push({'event':"RDS 로깅 비활성화(파라미터 그룹 삭제)",'count':result21.total,'details': q21});
+                                                        }            
+                                                    } else {
+                                                    console.error(xhr21.responseText);
+                                                    }
+                                                }
+                                                };
+                                                xhr21.open('get', 'https://threatitem.s3.ap-northeast-2.amazonaws.com/RDS/21'); // 메소드와 주소 설정
+                                                xhr21.send();
+                                            var xhr22 = new XMLHttpRequest();
+                                                xhr22.onreadystatechange = function() { // 요청에 대한 콜백
+                                                if (xhr22.readyState === xhr22.DONE) { // 요청이 완료되면
+                                                    if (xhr22.status === 200 || xhr22.status === 201) {
+                                                        var result22=JSON.parse(xhr22.responseText);
+                                                        if(result22.total>0){
+                                                            countlistM.push({'event':"DB 중지",'count':result22.total,'details': q22});
+                                                        }            
+                                                    } else {
+                                                    console.error(xhr22.responseText);
+                                                    }
+                                                }
+                                                };
+                                                xhr22.open('get', 'https://threatitem.s3.ap-northeast-2.amazonaws.com/RDS/22'); // 메소드와 주소 설정
+                                                xhr22.send();
+                                            var xhr23 = new XMLHttpRequest();
+                                                xhr23.onreadystatechange = function() { // 요청에 대한 콜백
+                                                if (xhr23.readyState === xhr23.DONE) { // 요청이 완료되면
+                                                    if (xhr23.status === 200 || xhr23.status === 201) {
+                                                        var result23=JSON.parse(xhr23.responseText);
+                                                        if(result23.total>0){
+                                                            countlistM.push({'event':"DB 삭제",'count':result23.total,'details': q23});
+                                                        }            
+                                                    } else {
+                                                    console.error(xhr23.responseText);
+                                                    }
+                                                }
+                                                };
+                                                xhr23.open('get', 'https://threatitem.s3.ap-northeast-2.amazonaws.com/RDS/23'); // 메소드와 주소 설정
+                                                xhr23.send();
+                                            var xhr24 = new XMLHttpRequest();
+                                                xhr24.onreadystatechange = function() { // 요청에 대한 콜백
+                                                if (xhr24.readyState === xhr24.DONE) { // 요청이 완료되면
+                                                    if (xhr24.status === 200 || xhr24.status === 201) {
+                                                        var result24=JSON.parse(xhr24.responseText);
+                                                        if(result24.total>0){
+                                                            countlistM.push({'event':"침투 테스트 시스템에서의 RDS API 호출",'count':result24.total,'details': q24});
+                                                        }            
+                                                    } else {
+                                                    console.error(xhr24.responseText);
+                                                    }
+                                                }
+                                                };
+                                                xhr24.open('get', 'https://threatitem.s3.ap-northeast-2.amazonaws.com/RDS/24'); // 메소드와 주소 설정
+                                                xhr24.send();
+                                            var xhr25 = new XMLHttpRequest();
+                                                xhr25.onreadystatechange = function() { // 요청에 대한 콜백
+                                                if (xhr25.readyState === xhr25.DONE) { // 요청이 완료되면
+                                                    if (xhr25.status === 200 || xhr25.status === 201) {
+                                                        var result25=JSON.parse(xhr25.responseText);
+                                                        if(result25.total>0){
+                                                            countlistM.push({'event':"RDS 로깅 비활성화(CloudWatch 로깅 수정)",'count':result25.total,'details': q25});
+                                                        }            
+                                                    } else {
+                                                    console.error(xhr25.responseText);
+                                                    }
+                                                }
+                                                };
+                                                xhr25.open('get', 'https://threatitem.s3.ap-northeast-2.amazonaws.com/RDS/25'); // 메소드와 주소 설정
+                                                xhr25.send();
+                                            var xhr26 = new XMLHttpRequest();
+                                                xhr26.onreadystatechange = function() { // 요청에 대한 콜백
+                                                if (xhr26.readyState === xhr26.DONE) { // 요청이 완료되면
+                                                    if (xhr26.status === 200 || xhr26.status === 201) {
+                                                        var result26=JSON.parse(xhr26.responseText);
+                                                        if(result26.total>0){
+                                                            countlistM.push({'event':"DB 연결 실패",'count':result26.total,'details': q26});
+                                                        }            
+                                                    } else {
+                                                    console.error(xhr26.responseText);
+                                                    }
+                                                }
+                                                };
+                                                xhr26.open('get', 'https://threatitem.s3.ap-northeast-2.amazonaws.com/RDS/26'); // 메소드와 주소 설정
+                                                xhr26.send();
+                                            var xhr27 = new XMLHttpRequest();
+                                                xhr27.onreadystatechange = function() { // 요청에 대한 콜백
+                                                if (xhr27.readyState === xhr27.DONE) { // 요청이 완료되면
+                                                    if (xhr27.status === 200 || xhr27.status === 201) {
+                                                        var result27=JSON.parse(xhr27.responseText);
+                                                        if(result27.total>0){
+                                                            countlistL.push({'event':"쉘 명령어 사용(yum)",'count':result27.total,'details': q27});
+                                                        }            
+                                                    } else {
+                                                    console.error(xhr27.responseText);
+                                                    }
+                                                }
+                                                };
+                                                xhr27.open('get', 'https://threatitem.s3.ap-northeast-2.amazonaws.com/EC2/27'); // 메소드와 주소 설정
+                                                xhr27.send();
+                                            var xhr28 = new XMLHttpRequest();
+                                                xhr28.onreadystatechange = function() { // 요청에 대한 콜백
+                                                if (xhr28.readyState === xhr28.DONE) { // 요청이 완료되면
+                                                    if (xhr28.status === 200 || xhr28.status === 201) {
+                                                        var result28=JSON.parse(xhr28.responseText);
+                                                        if(result28.total>0){
+                                                            countlistL.push({'event':"쉘 명령어 사용(sudo)",'count':result28.total,'details': q28});
+                                                        }            
+                                                    } else {
+                                                    console.error(xhr28.responseText);
+                                                    }
+                                                }
+                                                };
+                                                xhr28.open('get', 'https://threatitem.s3.ap-northeast-2.amazonaws.com/EC2/28'); // 메소드와 주소 설정
+                                                xhr28.send();
+                                            var xhr29 = new XMLHttpRequest();
+                                                xhr29.onreadystatechange = function() { // 요청에 대한 콜백
+                                                if (xhr29.readyState === xhr29.DONE) { // 요청이 완료되면
+                                                    if (xhr29.status === 200 || xhr29.status === 201) {
+                                                        var result29=JSON.parse(xhr29.responseText);
+                                                        if(result29.total>0){
+                                                            countlistM.push({'event':"쉘 명령어 사용(service)",'count':result29.total,'details': q29});
+                                                        }            
+                                                    } else {
+                                                    console.error(xhr29.responseText);
+                                                    }
+                                                }
+                                                };
+                                                xhr29.open('get', 'https://threatitem.s3.ap-northeast-2.amazonaws.com/EC2/29'); // 메소드와 주소 설정
+                                                xhr29.send();
+                                            var xhr30 = new XMLHttpRequest();
+                                                xhr30.onreadystatechange = function() { // 요청에 대한 콜백
+                                                if (xhr30.readyState === xhr30.DONE) { // 요청이 완료되면
+                                                    if (xhr30.status === 200 || xhr30.status === 201) {
+                                                        var result30=JSON.parse(xhr30.responseText);
+                                                        if(result30.total>0){
+                                                            countlistM.push({'event':"쉘 명령어 사용(cron)",'count':result30.total,'details': q30});
+                                                        }            
+                                                    } else {
+                                                    console.error(xhr30.responseText);
+                                                    }
+                                                }
+                                                };
+                                                xhr30.open('get', 'https://threatitem.s3.ap-northeast-2.amazonaws.com/EC2/30'); // 메소드와 주소 설정
+                                                xhr30.send();
+                                            
+                                            var xhr32 = new XMLHttpRequest();
+                                                xhr32.onreadystatechange = function() { // 요청에 대한 콜백
+                                                if (xhr32.readyState === xhr32.DONE) { // 요청이 완료되면
+                                                    if (xhr32.status === 200 || xhr32.status === 201) {
+                                                        var result32=JSON.parse(xhr32.responseText);
+                                                        if(result32.total>0){
+                                                            countlistL.push({'event':"인스턴스 생성, 실행",'count':result32.total,'details': q32});
+                                                        }            
+                                                    } else {
+                                                    console.error(xhr32.responseText);
+                                                    }
+                                                }
+                                                };
+                                                xhr32.open('get', 'https://threatitem.s3.ap-northeast-2.amazonaws.com/EC2/32'); // 메소드와 주소 설정
+                                                xhr32.send();
+                                            var xhr33 = new XMLHttpRequest();
+                                                xhr33.onreadystatechange = function() { // 요청에 대한 콜백
+                                                if (xhr33.readyState === xhr33.DONE) { // 요청이 완료되면
+                                                    if (xhr33.status === 200 || xhr33.status === 201) {
+                                                        var result33=JSON.parse(xhr33.responseText);
+                                                        if(result33.total>0){
+                                                            countlistM.push({'event':"인스턴스 중지, 삭제",'count':result33.total,'details': q33});
+                                                        }            
+                                                    } else {
+                                                    console.error(xhr33.responseText);
+                                                    }
+                                                }
+                                                };
+                                                xhr33.open('get', 'https://threatitem.s3.ap-northeast-2.amazonaws.com/EC2/33'); // 메소드와 주소 설정
+                                                xhr33.send();
+                                            var xhr34 = new XMLHttpRequest();
+                                                xhr34.onreadystatechange = function() { // 요청에 대한 콜백
+                                                if (xhr34.readyState === xhr34.DONE) { // 요청이 완료되면
+                                                    if (xhr34.status === 200 || xhr34.status === 201) {
+                                                        var result34=JSON.parse(xhr34.responseText);
+                                                        if(result34.total>0){
+                                                            countlistM.push({'event':"보안그룹 수정",'count':result34.total,'details': q34});
+                                                        }            
+                                                    } else {
+                                                    console.error(xhr34.responseText);
+                                                    }
+                                                }
+                                                };
+                                                xhr34.open('get', 'https://threatitem.s3.ap-northeast-2.amazonaws.com/EC2/34'); // 메소드와 주소 설정
+                                                xhr34.send();
+                                            var xhr35 = new XMLHttpRequest();
+                                                xhr35.onreadystatechange = function() { // 요청에 대한 콜백
+                                                if (xhr35.readyState === xhr35.DONE) { // 요청이 완료되면
+                                                    if (xhr35.status === 200 || xhr35.status === 201) {
+                                                        var result35=JSON.parse(xhr35.responseText);
+                                                        if(result35.total>0){
+                                                            countlistM.push({'event':"침투 테스트 시스템에서의 EC2 API 호출",'count':result35.total,'details': q35});
+                                                        }            
+                                                    } else {
+                                                    console.error(xhr35.responseText);
+                                                    }
+                                                }
+                                                };
+                                                xhr35.open('get', 'https://threatitem.s3.ap-northeast-2.amazonaws.com/EC2/35'); // 메소드와 주소 설정
+                                                xhr35.send();
+
+
+
+
+
+                                            function custonSort(a, b) { if(a.count == b.count){ return 0} return a.count > b.count ? -1 : 1; } 
+                                            //console.log(countlist);
+                                            function wrt(){
+                                                countlistL.sort(custonSort);
+                                                countlistM.sort(custonSort);
+                                                countlistH.sort(custonSort);
+                                                var Mlength=countlistM.length;
+                                                countlistM.splice(5,(Mlength-5));
+                                                $(function () { 
+                                                var $table = $("#table"); // 테이블 표현할 데이터 표현 
+                                                var data=countlistH;
+                                                console.log(countlistH);
+                                                $table.bootstrapTable({ data: data }) }
+                                                );
+                                                
+                                            };
+                                            
+
+                                        </script>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4" style="float:left;">
+                                <div class="main-card mb-3 card">
+                                    <div class="card-body"><div class="badge badge-warning">Medium</div><h5 class="card-title">Threat Detected</h5>
+                                        <table id="table2"> <thead> <tr> <!-- JSON 값과 매칭될 field를 명시 --> <th data-field="event">event</th> <th data-field="count">count</th> <th data-field="details">details</th> </tr> </thead> <tbody> </tbody> </table> 
+                                        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> 
+                                        <!-- bootstrap 가져오기 --> 
+                                        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> 
+                                        <!-- bootstrap table 가져오기 -->
+                                        <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
+                                        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  
+                                        <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css">
+                                        <script>
+                                            function wrt2(){
+                                                $(function () {
+                                                var $table2 = $("#table2"); // 테이블 표현할 데이터 표현 
+                                                var data=countlistM;
+                                                
+                                                console.log(countlistM);
+                                                $table2.bootstrapTable({ data: data }) }
+                                                );
+                                            };
+                                    </script>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4" style="float:left;">
+                                <div class="main-card mb-3 card">
+                                    <div class="card-body"><div class="badge badge-success">Low</div><h5 class="card-title">Threat Detected</h5>
+                                        <table id="table3"> <thead> <tr> <!-- JSON 값과 매칭될 field를 명시 --> <th data-field="event">event</th> <th data-field="count">count</th> <th data-field="details">details</th> </tr> </thead> <tbody> </tbody> </table> 
+                                        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> 
+                                        <!-- bootstrap 가져오기 --> 
+                                        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> 
+                                        <!-- bootstrap table 가져오기 -->
+                                        <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
+                                        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  
+                                        <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css">
+                                        <script>
+                                            function wrt3(){
+                                                $(function () {
+                                                var $table3 = $("#table3"); // 테이블 표현할 데이터 표현 
+                                                var data=countlistL;
+                                                
+                                                console.log(countlistL);
+                                                $table3.bootstrapTable({ data: data }) }
+                                                );
+                                            };
+                                    </script>
+                                    </div>
+                                </div>
+                            </div>
+                
+
+                
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.5/xlsx.full.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.18.0/dist/bootstrap-table.min.js"></script>
+
+
+
+</body>
+
+</html>

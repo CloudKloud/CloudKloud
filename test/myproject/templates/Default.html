@@ -1,0 +1,887 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Analytics Dashboard - This is an example dashboard created using build-in elements and components.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
+    <meta name="msapplication-tap-highlight" content="no">
+    <!--
+    =========================================================
+    * ArchitectUI HTML Theme Dashboard - v1.0.0
+    =========================================================
+    * Product Page: https://dashboardpack.com
+    * Copyright 2019 DashboardPack (https://dashboardpack.com)
+    * Licensed under MIT (https://github.com/DashboardPack/architectui-html-theme-free/blob/master/LICENSE)
+    =========================================================
+    * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+    -->
+<link href="{% static 'css/main.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="https://uicdn.toast.com/grid/latest/tui-grid.css" />
+<script src="https://uicdn.toast.com/grid/latest/tui-grid.js"></script>
+
+
+<link rel="stylesheet" href="https://uicdn.toast.com/tui.chart/latest/tui-chart.min.css">
+    <script type='text/javascript' src='https://uicdn.toast.com/tui.code-snippet/v1.5.0/tui-code-snippet.min.js'></script>
+    <script type='text/javascript' src='https://uicdn.toast.com/tui.chart/latest/raphael.js'></script>
+    <script src="https://uicdn.toast.com/tui.chart/latest/tui-chart.min.js"></script>
+</head>
+
+<body>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.783.0.min.js"></script>
+    <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
+        
+        
+        
+        
+        <div class="app-header header-shadow" class="hi">  <!-- 창 위쪽 헤더부분 div -->
+            
+            
+            <!--  로고 -->
+            <div class="app-header__logo">
+                <div class="logo-src"></div>
+                <div class="header__pane ml-auto">
+                    <div>
+                        <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+
+            <!-- ??? 뭐지???
+            <div class="app-header__mobile-menu">
+                <div>
+                    <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        -->
+
+
+            <!-- ????
+            <div class="app-header__menu">
+                <span>
+                    <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                        <span class="btn-icon-wrapper">
+                            <i class="fa fa-ellipsis-v fa-w-6"></i>
+                        </span>
+                    </button>
+                </span>
+            </div>    
+        -->
+            
+            <!-- 헤더 콘텐츠 -->
+            <div class="app-header__content">
+                
+                
+                
+                
+                <div class="app-header-left">
+                    <div class="search-wrapper">
+                        <div class="input-holder">
+                            <input type="text" class="search-input" placeholder="Type to search">
+                            <button class="search-icon"><span></span></button>
+                        </div>
+                        <button class="close"></button>
+                    </div>
+                    <ul class="header-menu nav">
+                        <li class="nav-item">
+                            <a href="javascript:void(0);" class="nav-link">
+                                <i class="nav-link-icon fa fa-database"> </i>
+                                Statistics
+                            </a>
+                        </li>
+                        <li class="btn-group nav-item">
+                            <a href="javascript:void(0);" class="nav-link">
+                                <i class="nav-link-icon fa fa-edit"></i>
+                                Projects
+                            </a>
+                        </li>
+                        <li class="dropdown nav-item">
+                            <a href="javascript:void(0);" class="nav-link">
+                                <i class="nav-link-icon fa fa-cog"></i>
+                                Settings
+                            </a>
+                        </li>
+                    </ul>        
+                </div>
+                
+
+
+
+                <div class="app-header-right">
+                    <div class="header-btn-lg pr-0">
+                        <div class="widget-content p-0">
+                            <div class="widget-content-wrapper">
+                                <div class="widget-content-left">
+                                    <div class="btn-group">
+                                        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
+                                            <img width="42" class="rounded-circle" src="{% static 'images/avatars/1.jpg' %}" alt="">
+                                            <i class="fa fa-angle-down ml-2 opacity-8"></i>
+                                        </a>
+                                        <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
+                                            <button type="button" tabindex="0" class="dropdown-item">User Account</button>
+                                            <button type="button" tabindex="0" class="dropdown-item">Settings</button>
+                                            <h6 tabindex="-1" class="dropdown-header">Header</h6>
+                                            <button type="button" tabindex="0" class="dropdown-item">Actions</button>
+                                            <div tabindex="-1" class="dropdown-divider"></div>
+                                            <button type="button" tabindex="0" class="dropdown-item">Dividers</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="widget-content-left  ml-3 header-user-info">
+                                    <div class="widget-heading">
+                                        Gunha Jang
+                                    </div>
+                                    <div class="widget-subheading">
+                                        BOB digital forensic track
+                                    </div>
+                                </div>
+                                <div class="widget-content-right header-user-info ml-3">
+                                    <button type="button" class="btn-shadow p-1 btn btn-primary btn-sm show-toastr-example">
+                                        <i class="fa text-white fa-calendar pr-1 pl-1"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>        
+                </div>
+            </div> 
+        </div>
+        
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        <!-- 메인 화면 -->
+        <div class="app-main">
+
+                <!-- sidebar -->
+                <div class="app-sidebar sidebar-shadow">
+                    <div class="app-header__logo">
+                        <div class="logo-src"></div>
+                        <div class="header__pane ml-auto">
+                            <div>
+                                <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                                    <span class="hamburger-box">
+                                        <span class="hamburger-inner"></span>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="app-header__mobile-menu">
+                        <div>
+                            <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+                                <span class="hamburger-box">
+                                    <span class="hamburger-inner"></span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="app-header__menu">
+                        <span>
+                            <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                                <span class="btn-icon-wrapper">
+                                    <i class="fa fa-ellipsis-v fa-w-6"></i>
+                                </span>
+                            </button>
+                        </span>
+                    </div>    <div class="scrollbar-sidebar">
+                        <div class="app-sidebar__inner">
+                            <ul class="vertical-nav-menu">
+                                <li class="app-sidebar__heading">Home</li>
+                                <li>
+                                    <a href="/" class="mm-active">
+                                        <i class="metismenu-icon pe-7s-rocket"></i>
+                                        Main Page
+                                    </a>
+                                </li>
+                                <li class="app-sidebar__heading">Logs</li>
+                                <li>
+                                    <a href="/logs">
+                                        <i class="metismenu-icon pe-7s-diamond"></i>
+                                        Log Explorer
+                                        
+                                    </a>
+                                    <a href="/query">
+                                        <i class="metismenu-icon pe-7s-diamond"></i>
+                                        Automated Query
+                                        
+                                    </a>
+                                    
+                                </li>
+                                
+                                 
+                            </ul>
+                        </div>
+                    </div>
+                </div>    
+                
+                
+                
+                
+                
+
+
+                <!-- 화면에 보이는 부분 -->
+
+                <div class="app-main__outer">
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <div class="app-main__inner">
+                        
+                        
+                        <!-- 페이지 헤더 부분 -->
+                        <div class="app-page-title">
+                            <div class="page-title-wrapper">
+                                <div class="page-title-heading">
+                                    <div class="page-title-icon">
+                                        <i class="pe-7s-car icon-gradient bg-mean-fruit">
+                                        </i>
+                                    </div>
+                                    <div>Main
+                                        <div class="page-title-subheading">You can view your region map here
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="page-title-actions">
+                                    <button type="button" data-toggle="tooltip" title="Example Tooltip" data-placement="bottom" class="btn-shadow mr-3 btn btn-dark">
+                                        <i class="fa fa-star"></i>
+                                    </button>
+                                    <div class="d-inline-block dropdown">
+                                        <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn-shadow dropdown-toggle btn btn-info">
+                                            <span class="btn-icon-wrapper pr-2 opacity-7">
+                                                <i class="fa fa-business-time fa-w-20"></i>
+                                            </span>
+                                            Buttons
+                                        </button>
+                                        <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
+                                            <ul class="nav flex-column">
+                                                <li class="nav-item">
+                                                    <a href="javascript:void(0);" class="nav-link">
+                                                        <i class="nav-link-icon lnr-inbox"></i>
+                                                        <span>
+                                                            Inbox
+                                                        </span>
+                                                        <div class="ml-auto badge badge-pill badge-secondary">86</div>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="javascript:void(0);" class="nav-link">
+                                                        <i class="nav-link-icon lnr-book"></i>
+                                                        <span>
+                                                            Book
+                                                        </span>
+                                                        <div class="ml-auto badge badge-pill badge-danger">5</div>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="javascript:void(0);" class="nav-link">
+                                                        <i class="nav-link-icon lnr-picture"></i>
+                                                        <span>
+                                                            Picture
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a disabled href="javascript:void(0);" class="nav-link disabled">
+                                                        <i class="nav-link-icon lnr-file-empty"></i>
+                                                        <span>
+                                                            File Disabled
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>    
+                            </div>
+                        </div>     
+                        
+                        
+
+                        
+                        <!-- CUSTOM PART -->
+                         <!-- google chart 의 표 쓰기 -->
+                         <div class="row">
+                            <div class="col-md-12">
+                                
+                                
+                                    <div class="col-lg-12">
+                                        <div class="main-card mb-3 card">
+                                            <div class="card-body">
+                                                
+                                                <h5 class="card-title">Regions</h5>
+                                                <meta charset="UTF-8">
+                                                <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+                                                <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.3/xlsx.full.min.js"></script>
+                                                <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+                                                <script src="//cdn.amcharts.com/lib/4/charts.js"></script>
+                                                <script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
+                                                <script src="https://cdn.amcharts.com/lib/4/geodata/worldLow.js"></script>
+                                                <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+
+                                                <script>
+                                                    
+                                                    var a = [];
+                                                    //let chart = undefined
+                                                    var chart = am4core.create("chartdiv", "MapChart");
+                                                    
+                                                    function updateMap() {
+                                                        //var chart = am4core.create("chartdiv",am4charts.MapChart);
+                                                        var imageSeries = chart.series.push(new am4maps.MapImageSeries());
+                                                        imageSeries.mapImages.template.propertyFields.longitude = "longitude";
+                                                        imageSeries.mapImages.template.propertyFields.latitude = "latitude";
+
+                                                        var imageSeries1 = chart.series.push(new am4maps.MapImageSeries());
+                                                        imageSeries1.mapImages.template.propertyFields.longitude = "longitude";
+                                                        imageSeries1.mapImages.template.propertyFields.latitude = "latitude";
+                                                        imageSeries1.data = [{
+                                                            "title": "us-east-2",
+                                                            "latitude": 40.367474,
+                                                            "longitude": -82.996216
+                                                        }, {
+                                                            "title": "us-east-1",
+                                                            "latitude": 37.926868,
+                                                            "longitude": -78.024902
+                                                        }, {
+                                                            "title": "us-west-1",
+                                                            "latitude": 36.778259,
+                                                            "longitude": -119.417931
+                                                        }, {
+                                                            "title": "us-west-2",
+                                                            "latitude": 44.000000,
+                                                            "longitude": -120.500000
+                                                        }, {
+                                                            "title": "af-south-1",
+                                                            "latitude": -33.918861,
+                                                            "longitude": 18.423300
+                                                        }, {
+                                                            "title": "ap-east-1",
+                                                            "latitude": 22.302711,
+                                                            "longitude": 114.177216
+                                                        }, {
+                                                            "title": "ap-south-1",
+                                                            "latitude": 19.076090,
+                                                            "longitude": 72.877426
+                                                        }, {
+                                                            "title": "ap-northeast-3",
+                                                            "latitude": 34.669529,
+                                                            "longitude": 135.497009
+                                                        }, {
+                                                            "title": "ap-northeast-2",
+                                                            "latitude": 37.532600,
+                                                            "longitude": 127.024612
+                                                        }, {
+                                                            "title": "ap-southeast-1",
+                                                            "latitude": 1.290270,
+                                                            "longitude": 103.851959
+                                                        }, {
+                                                            "title": "ap-southeast-2",
+                                                            "latitude": -33.865143,
+                                                            "longitude": 151.209900
+                                                        }, {
+                                                            "title": "ap-northeast-1",
+                                                            "latitude": 35.6785,
+                                                            "longitude": 139.6823,
+                                                            "url": "http://www.google.co.jp"
+                                                        }, {
+                                                            "title": "ca-central-1",
+                                                            "latitude": 58.700212,
+                                                            "longitude": -105.164983
+                                                        }, {
+                                                            "title": "eu-central-1",
+                                                            "latitude": 50.110924,
+                                                            "longitude": 8.682127
+                                                        }, {
+                                                            "title": "eu-west-1",
+                                                            "latitude": 53.350140,
+                                                            "longitude": -6.266155
+                                                        }, {
+                                                            "title": "eu-west-2",
+                                                            "latitude": 51.5002,
+                                                            "longitude": -0.1262,
+                                                            "url": "http://www.google.co.uk"
+                                                        }, {
+                                                            "title": "eu-south-1",
+                                                            "latitude": 45.464664,
+                                                            "longitude": 9.188540
+                                                        }, {
+                                                            "title": "eu-west-3",
+                                                            "latitude": 48.8567,
+                                                            "longitude": 2.3510
+                                                        }, {
+                                                            "title": "eu-north-1",
+                                                            "latitude": 59.334591,
+                                                            "longitude": 18.063240
+                                                        }, {
+                                                            "title": "me-south-1",
+                                                            "latitude": 26.156258,
+                                                            "longitude": 50.400505
+                                                        }, {
+                                                            "title": "sa-east-1",
+                                                            "latitude": -23.533773,
+                                                            "longitude": -46.625290
+                                                        }];
+
+                                                        var b = [];
+                                                        var jl = Object.keys(imageSeries1.data).length;
+                                                        for (var k = 0; k < jl; k++) {
+                                                            //document.writeln(a.includes(imageSeries.data[k].title)+" "+imageSeries.data[k].title);
+                                                            if (a.includes(imageSeries1.data[k].title)) {
+                                                                //alert(imageSeries1.data[k].title+"0000");
+                                                                b.push(k);
+                                                            } else {
+                                                                //alert(imageSeries1.data[k].title+"XXXX");
+                                                                continue;
+                                                            }
+                                                        }
+
+                                                        var jl2 = b.length;
+
+                                                        for (var h = 0; h < jl2; h++) {
+                                                            var c = b[h];
+                                                            //alert(c);
+                                                            imageSeries.data.push(imageSeries1.data[c]);
+                                                        }
+                                                        chart.events.on("ready", updateCustomMarkers);
+                                                        chart.events.on("mappositionchanged", updateCustomMarkers);
+
+                                                        // add events to recalculate map position when the map is moved or zoomed
+                                                        //chart.events.on( "ready", updateCustomMarkers );
+                                                        //chart.events.on( "mappositionchanged", updateCustomMarkers );
+
+                                                        // this function will take current images on the map and create HTML elements for them
+                                                        function updateCustomMarkers(event) {
+
+                                                            // go through all of the images
+                                                            imageSeries.mapImages.each(function(image) {
+                                                                // check if it has corresponding HTML element
+                                                                if (!image.dummyData || !image.dummyData.externalElement) {
+                                                                    // create onex
+                                                                    image.dummyData = {
+                                                                        externalElement: createCustomMarker(image)
+                                                                    };
+                                                                }
+
+                                                                // reposition the element accoridng to coordinates
+                                                                var xy = chart.geoPointToSVG({
+                                                                    longitude: image.longitude,
+                                                                    latitude: image.latitude
+                                                                });
+                                                                image.dummyData.externalElement.style.top = xy.y + 'px';
+                                                                image.dummyData.externalElement.style.left = xy.x + 'px';
+                                                            });
+
+                                                        }
+
+                                                        // this function creates and returns a new marker element
+                                                        function createCustomMarker(image) {
+
+                                                            chart = image.dataItem.component.chart;
+
+                                                            // create holder
+                                                            var holder = document.createElement('div');
+                                                            holder.className = 'map-marker';
+                                                            holder.title = image.dataItem.dataContext.title;
+                                                            holder.style.position = 'absolute';
+
+                                                            // maybe add a link to it?
+                                                            if (undefined != image.url) {
+                                                                holder.onclick = function() {
+                                                                    window.location.href = image.url;
+                                                                };
+                                                                holder.className += ' map-clickable';
+                                                            }
+
+                                                            // create dot
+                                                            var dot = document.createElement('div');
+                                                            dot.className = 'dot';
+                                                            holder.appendChild(dot);
+
+                                                            // create pulse
+                                                            var pulse = document.createElement('div');
+                                                            pulse.className = 'pulse';
+                                                            holder.appendChild(pulse);
+
+                                                            // append the marker to the map container
+                                                            chart.svgContainer.htmlElement.appendChild(holder);
+
+                                                            return holder;
+                                                        }
+                                                    }
+                                                    function unescape(s){
+                                                        s=(''+s);
+                                                        s=s.replace(/&#x27;/g,'"');
+                                                        return (s);
+                                                    }
+                                                    function unescape2(s){
+                                                        s=(""+s);
+                                                        s=s.replace(/'/g,'"');
+                                                        return (s);
+                                                    }
+                                                    //var test="abcdefg";
+                                                    //test=test.replace(/cd/g,"jj");
+                                                    //console.log(test);
+                                                    var replaceAt = function(input, index, character){
+                                                        return input.substr(0, index) + character + input.substr(index+character.length);
+                                                    }
+
+                                            
+
+                                                    function regions(x) {
+
+                                                        //var x = sheet;
+                                                        //x=JSON.parse(x);
+                                                        console.log(typeof(x));
+                                                       
+                                                        for (var i = 0; i < x.length; i++) {
+                                                            if (x[i].EC2 == true) {
+                                                                a.push(x[i].RG);
+                                                            } else if (x[i].S3 == true) {
+                                                                a.push(x[i].RG);
+                                                            } else if (x[i].RDS == true) {
+                                                                a.push(x[i].RG);
+                                                            } else {
+                                                                continue;
+                                                            }
+                                                            $("#regionshow").html(a);
+                                                        }
+                                                        console.log(a);
+                                                        updateMap();
+                                                    }
+
+                                                    //var input1=[]
+                                                    var inpit1=('{{object}}');
+                                                    input1.split('},')
+                                                    //var input1=("{{object}}");
+                                                    input1=unescape(input1);
+                                                    //console.log(typeof(input1));
+                                                    var inputlength=input1.length-1;
+                                                    input1=unescape2(input1);
+                                                    //input1=replaceAt(input1,0,"'");
+                                                    //input1=replaceAt(input1,inputlength,"'");
+                                                    //console.log(input1);
+                                                    //typeof JSON.parse(input1)=='object';
+                                                    var input2=JSON.parse(input1);
+                                                    //input1=eval(input1);
+                                                    console.log(typeof(input2));
+                                                    regions(input2);
+
+                                                </script>
+                                                <div id="regionshow"></div>
+
+
+                                                <!-- Styles -->
+                                                <style>
+                                                    #chartdiv {
+                                                        width: 70%;
+                                                        height: 500px;
+                                                        overflow: hidden;
+                                                        position: relative;
+                                                    }
+
+                                                    .map-marker {
+                                                        /* adjusting for the marker dimensions
+                                                    so that it is centered on coordinates */
+                                                        margin-left: -8px;
+                                                        margin-top: -8px;
+                                                        box-sizing: border-box;
+                                                    }
+
+                                                    .map-marker.map-clickable {
+                                                        cursor: pointer;
+                                                    }
+
+                                                    .pulse {
+                                                        width: 10px;
+                                                        height: 10px;
+                                                        border: 5px solid #f7f14c;
+                                                        -webkit-border-radius: 30px;
+                                                        -moz-border-radius: 30px;
+                                                        border-radius: 30px;
+                                                        background-color: #716f42;
+                                                        z-index: 10;
+                                                        position: absolute;
+                                                        box-sizing: border-box;
+                                                    }
+
+                                                    .map-marker .dot {
+                                                        border: 10px solid #fff601;
+                                                        background: transparent;
+                                                        -webkit-border-radius: 60px;
+                                                        -moz-border-radius: 60px;
+                                                        border-radius: 60px;
+                                                        height: 50px;
+                                                        width: 50px;
+                                                        -webkit-animation: pulse 3s ease-out;
+                                                        -moz-animation: pulse 3s ease-out;
+                                                        animation: pulse 3s ease-out;
+                                                        -webkit-animation-iteration-count: infinite;
+                                                        -moz-animation-iteration-count: infinite;
+                                                        animation-iteration-count: infinite;
+                                                        position: absolute;
+                                                        top: -20px;
+                                                        left: -20px;
+                                                        z-index: 1;
+                                                        opacity: 0;
+                                                        box-sizing: border-box;
+                                                    }
+
+                                                    @-moz-keyframes pulse {
+                                                        0% {
+                                                            -moz-transform: scale(0);
+                                                            opacity: 0.0;
+                                                        }
+
+                                                        25% {
+                                                            -moz-transform: scale(0);
+                                                            opacity: 0.1;
+                                                        }
+
+                                                        50% {
+                                                            -moz-transform: scale(0.1);
+                                                            opacity: 0.3;
+                                                        }
+
+                                                        75% {
+                                                            -moz-transform: scale(0.5);
+                                                            opacity: 0.5;
+                                                        }
+
+                                                        100% {
+                                                            -moz-transform: scale(1);
+                                                            opacity: 0.0;
+                                                        }
+                                                    }
+
+                                                    @-webkit-keyframes pulse {
+                                                        0% {
+                                                            -webkit-transform: scale(0);
+                                                            opacity: 0.0;
+                                                        }
+
+                                                        25% {
+                                                            -webkit-transform: scale(0);
+                                                            opacity: 0.1;
+                                                        }
+
+                                                        50% {
+                                                            -webkit-transform: scale(0.1);
+                                                            opacity: 0.3;
+                                                        }
+
+                                                        75% {
+                                                            -webkit-transform: scale(0.5);
+                                                            opacity: 0.5;
+                                                        }
+
+                                                        100% {
+                                                            -webkit-transform: scale(1);
+                                                            opacity: 0.0;
+                                                        }
+                                                    }
+                                                </style>
+
+                                                <!-- Resources -->
+                                                <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+                                                <script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
+                                                <script src="https://cdn.amcharts.com/lib/4/geodata/worldLow.js"></script>
+                                                <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+
+                                                <!-- Chart code -->
+                                                <script>
+                                                    am4core.ready(function() {
+
+                                                        // Themes begin
+                                                        am4core.useTheme(am4themes_animated);
+                                                        // Themes end
+
+                                                        // Create map instance
+                                                        chart = am4core.create("chartdiv", am4maps.MapChart);
+
+                                                        // Set map definition
+                                                        chart.geodata = am4geodata_worldLow;
+
+                                                        // Set projection
+                                                        chart.projection = new am4maps.projections.Miller();
+
+                                                        // Create map polygon series
+                                                        var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+
+                                                        // Exclude Antartica
+                                                        polygonSeries.exclude = ["AQ"];
+
+                                                        // Make map load polygon (like country names) data from GeoJSON
+                                                        polygonSeries.useGeodata = true;
+
+                                                        // Configure series
+                                                        var polygonTemplate = polygonSeries.mapPolygons.template;
+                                                        polygonTemplate.tooltipText = "{name}";
+                                                        polygonTemplate.fill = chart.colors.getIndex(0).lighten(0.5);
+
+                                                        // Create hover state and set alternative fill color
+                                                        var hs = polygonTemplate.states.create("hover");
+                                                        hs.properties.fill = chart.colors.getIndex(0);
+
+                                                    }); // end am4core.ready()
+                                                </script>
+
+                                                <!-- HTML -->
+                                                <div id="chartdiv"></div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                            </div>
+                        </div>
+
+
+                        <!-- Active Users -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="main-card mb-3 card">
+                                    <div class="card-header">Threat detection
+                                        <div class="btn-actions-pane-right">
+                                            <div role="group" class="btn-group-sm btn-group">
+                                                <button class="active btn btn-focus">Last Week</button>
+                                                <button class="btn btn-focus">All Month</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                                            <thead>
+                                            <tr>
+                                                <th class="text-center">#</th>
+                                                <th>Service</th>
+                                                <th class="text-center">Regions</th>
+                                                <th class="text-center">Severity</th>
+                                                <th class="text-center">Actions</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td class="text-center text-muted">#345</td>
+                                                <td>
+                                                    <div class="widget-content p-0">
+                                                        <div class="widget-content-wrapper">
+                                                            <div class="widget-content-left mr-3">
+                                                                <div class="widget-content-left">
+                                                                </div>
+                                                            </div>
+                                                            <div class="widget-content-left flex2">
+                                                                <div class="widget-heading">IAM</div>
+                                                                <div class="widget-subheading opacity-7">사용하지 않는 리전에 인프라 생성 및 배포, API 호출</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">eu-west-2</td>
+                                                <td class="text-center">
+                                                    <div class="badge badge-warning">Medium</div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <button type="button" id="PopoverCustomT-1" class="btn btn-primary btn-sm">Details</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center text-muted">#347</td>
+                                                <td>
+                                                    <div class="widget-content p-0">
+                                                        <div class="widget-content-wrapper">
+                                                            <div class="widget-content-left mr-3">
+                                                                <div class="widget-content-left">
+                                                                </div>
+                                                            </div>
+                                                            <div class="widget-content-left flex2">
+                                                                <div class="widget-heading">S3</div>
+                                                                <div class="widget-subheading opacity-7">버킷 또는 객체의 권한 변경</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">me-south-1</td>
+                                                <td class="text-center">
+                                                    <div class="badge badge-success">Low</div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm">Details</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center text-muted">#321</td>
+                                                <td>
+                                                    <div class="widget-content p-0">
+                                                        <div class="widget-content-wrapper">
+                                                            <div class="widget-content-left mr-3">
+                                                                <div class="widget-content-left"></div></div>
+                                                            <div class="widget-content-left flex2">
+                                                                <div class="widget-heading">EC2</div>
+                                                                <div class="widget-subheading opacity-7">의심스러운 도메인과의 통신</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </td>
+                                                <td class="text-center">us-west-1</td>
+                                                <td class="text-center">
+                                                    <div class="badge badge-danger">High</div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <button type="button" id="PopoverCustomT-3" class="btn btn-primary btn-sm">Details</button>
+                                                </td>
+                                            </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="d-block text-center card-footer">
+                                        <button class="mr-2 btn-icon btn-icon-only btn btn-outline-danger"><i class="pe-7s-trash btn-icon-wrapper"> </i></button>
+                                        <button class="btn-wide btn btn-success">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.5/xlsx.full.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+
+
+
+</body>
+
+</html>
