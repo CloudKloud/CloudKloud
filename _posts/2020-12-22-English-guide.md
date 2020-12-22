@@ -22,7 +22,7 @@ We support the AWS(Amazone Web Service) inter alia EC2, S3, RDS, IAM.
 
 You can use it for free. 
 
-However, You need to [set](https://github.com/jgunha/CloudKloud "Cloud?Kloud!")  
+However, You need to [set](https://cloudkloud.github.io/CloudKloud/jekyll/minimal-mistakes/Setting/ "Cloud?Kloud!")  
 
 
 
