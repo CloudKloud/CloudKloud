@@ -6,6 +6,10 @@ categories :
 tags:
     - Cloud?Kloud!
     - cloud
+    - S3
+    - EC2
+    - RDS
+    - IAM
 date : "2020-12-22 19:00"
 ---
 
