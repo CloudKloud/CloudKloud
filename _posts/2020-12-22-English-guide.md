@@ -10,7 +10,7 @@ date : "2020-12-22 19:00"
 ---
 
 ## About CK
-cloud? Klooud!
+Cloud? Klooud!
 
 Ck is the cloud logs analysis support solution.
 
