@@ -1,5 +1,5 @@
 ---
-title : "english CK guide"
+title : "English CK guide"
 categories : 
     - jekyll
     - minimal-mistakes
