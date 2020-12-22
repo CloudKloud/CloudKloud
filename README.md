@@ -11,7 +11,8 @@ CK는 클라우드 로그 분석 지원 솔루션 입니다.
 
 해당 서비스는 무료입니다.
 
-해당  [주소](https://github.com/CloudKloud/CloudKloud)로 가면 code를 확인할 수 있고 서비스를 활용하기 위해 설정하는 절차를 안내 해줍니다.
+해당  [주소](https://github.com/CloudKloud/CloudKloud)로 가면 code를 확인할 수 있고, 
+해당  [주소](https://cloudkloud.github.io/CloudKloud/jekyll/minimal-mistakes/Setting/)로 가면서비스를 활용하기 위해 설정하는 절차를 안내 해줍니다.
 
 
 
@@ -123,7 +124,7 @@ __plus__ 버튼을 누르면 로그에 대한 더 자세한 정보를 볼 수 �
 
 
 #### 영어 버전 링크
-https://yelynew.github.io/CK/
+https://cloudkloud.github.io/CloudKloud/jekyll/minimal-mistakes/English-guide/
 
 
 
