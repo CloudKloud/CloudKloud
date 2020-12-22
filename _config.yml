@@ -95,7 +95,7 @@ analytics:
 author:
   name             : "Cloud? Kloud!"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Integrated *Logs Analysis Support* on Cloud Environment"
+  bio              : "Integrated _Logs Analysis Support_ on Cloud Environment"
   location         : "Seoul"
   email            :
   links:
