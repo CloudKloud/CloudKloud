@@ -29,11 +29,6 @@ urlpatterns = [
     path('ip/<str:id>/', ip_query),
     path('iamkey/<str:id>/', iamkey_query),
 
-    # 침해사고 초기대응 관련 페이지
-
-    url(r'^incident$', IR),
-    url(r'^mitigation$', mitigation),
-    url(r'^instancelist$', ec2_list),
 
 
     # map

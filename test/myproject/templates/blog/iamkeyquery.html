@@ -445,7 +445,9 @@
 <script>
     window.onload = function(){
         $("#loader").hide();
-        list_iamkey_logs('{{ id }}');
+        let regionname = ('{{ regionname }}');
+        let roleid = ('{{ roleid }}')
+        list_iamkey_logs('{{ id }}', regionname, roleid);
     }
     $('#threatitemtitle').html('{{ id }}');
 

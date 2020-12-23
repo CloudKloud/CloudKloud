@@ -11,6 +11,6 @@ self.onmessage = function(e){
             }
         }
     };
-    xhr.open('POST', '/background/'+e.data, true); // 메소드와 주소 설정
+    xhr.open('GET', '/background/'+e.data, true); // 메소드와 주소 설정
     xhr.send(); // 요청 전송 
 }

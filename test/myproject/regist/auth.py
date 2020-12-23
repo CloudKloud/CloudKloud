@@ -10,6 +10,7 @@ def auth(accesskeyid, secretaccesskey):
         result = logs.describe_log_groups()
         
         return True
-    except:
+    except Exception as ex:
+        print(ex)
         pass
     return False
