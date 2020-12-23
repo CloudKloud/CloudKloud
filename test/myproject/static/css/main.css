@@ -23505,7 +23505,7 @@ legend {
 .hamburger.is-active .hamburger-inner,
 .hamburger.is-active .hamburger-inner::before,
 .hamburger.is-active .hamburger-inner::after {
-    background-color: #3f6ad8
+    background-color: #FFFFFF
 }
 
 .hamburger-box {
@@ -23526,7 +23526,7 @@ legend {
 .hamburger-inner::after {
     width: 24px;
     height: 2px;
-    background-color: #3f6ad8;
+    background-color: #FFFFFF;
     border-radius: 10px;
     position: absolute;
     transition-property: transform;

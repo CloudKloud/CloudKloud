@@ -4,29 +4,38 @@ import json
 import datetime
 from regist.models import accessKeyIDPW
 
-AWS_DEFAULT_REGION = "ap-northeast-2"
-
-def cloudtrail_trailcheck():
-    db = accessKeyIDPW.objects.all()
-
+db = accessKeyIDPW.objects.all()
+if db:
     AWS_ACCESS_KEY_ID = db[0].accesskeyid
     AWS_SECRET_ACCESS_KEY = db[0].secretaccesskey
+    AWS_DEFAULT_REGION = db[0].awsconfigregion
+
     client = boto3.client('cloudtrail', aws_access_key_id=AWS_ACCESS_KEY_ID,
                     aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
                     region_name=AWS_DEFAULT_REGION)
+
+    ec2 = boto3.client('ec2', aws_access_key_id=AWS_ACCESS_KEY_ID,
+                    aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
+                    region_name=AWS_DEFAULT_REGION)
+    
+    rds = boto3.client('rds', aws_access_key_id=AWS_ACCESS_KEY_ID,
+                    aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
+                    region_name=AWS_DEFAULT_REGION)
+
+    logs = boto3.client('logs', aws_access_key_id=AWS_ACCESS_KEY_ID,
+                    aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
+                    region_name=AWS_DEFAULT_REGION)
+
+
+def cloudtrail_trailcheck():
+
     result = client.describe_trails()
     if result['trailList'] != []:
         return '설정 완료'
     return '미설정'
 
 def cloudtrail_MRcheck(): #multi region check
-    db = accessKeyIDPW.objects.all()
 
-    AWS_ACCESS_KEY_ID = db[0].accesskeyid
-    AWS_SECRET_ACCESS_KEY = db[0].secretaccesskey
-    client = boto3.client('cloudtrail', aws_access_key_id=AWS_ACCESS_KEY_ID,
-                    aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
-                    region_name=AWS_DEFAULT_REGION)
     result = client.describe_trails()
     check = False
     try:
@@ -42,13 +51,8 @@ def cloudtrail_MRcheck(): #multi region check
     
 
 def cloudtrail_watchcheck(): #multi region check
-    db = accessKeyIDPW.objects.all()
 
-    AWS_ACCESS_KEY_ID = db[0].accesskeyid
-    AWS_SECRET_ACCESS_KEY = db[0].secretaccesskey
-    client = boto3.client('cloudtrail', aws_access_key_id=AWS_ACCESS_KEY_ID,
-                    aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
-                    region_name=AWS_DEFAULT_REGION)
+    
     result = client.describe_trails()
     check = False
     try:
@@ -71,13 +75,8 @@ def cloudtrail_watchcheck(): #multi region check
     return '미설정'
 
 def s3_check():
-    db = accessKeyIDPW.objects.all()
 
-    AWS_ACCESS_KEY_ID = db[0].accesskeyid
-    AWS_SECRET_ACCESS_KEY = db[0].secretaccesskey
-    client = boto3.client('cloudtrail', aws_access_key_id=AWS_ACCESS_KEY_ID,
-                    aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
-                    region_name=AWS_DEFAULT_REGION)
+    
     try:
         result = client.get_event_selectors(TrailName='ck-trail')
         temp = result['EventSelectors'][0]['DataResources']
@@ -88,13 +87,8 @@ def s3_check():
     return '미설정'
 
 def rds_securitygroup_check():
-    db = accessKeyIDPW.objects.all()
 
-    AWS_ACCESS_KEY_ID = db[0].accesskeyid
-    AWS_SECRET_ACCESS_KEY = db[0].secretaccesskey
-    ec2 = boto3.client('ec2', aws_access_key_id=AWS_ACCESS_KEY_ID,
-                    aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
-                    region_name=AWS_DEFAULT_REGION)
+    
     try:
         result = ec2.describe_security_groups(
             GroupNames=[
@@ -109,13 +103,8 @@ def rds_securitygroup_check():
     return '미설정'
 
 def rds_exportlog_check():
-    db = accessKeyIDPW.objects.all()
 
-    AWS_ACCESS_KEY_ID = db[0].accesskeyid
-    AWS_SECRET_ACCESS_KEY = db[0].secretaccesskey
-    rds = boto3.client('rds', aws_access_key_id=AWS_ACCESS_KEY_ID,
-                    aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
-                    region_name=AWS_DEFAULT_REGION)
+    
     result = rds.describe_db_instances()
     if result['DBInstances'] == []:
         return '미설정'
@@ -128,13 +117,7 @@ def rds_exportlog_check():
     return '설정 완료'
 
 def rds_paragrp_check():
-    db = accessKeyIDPW.objects.all()
 
-    AWS_ACCESS_KEY_ID = db[0].accesskeyid
-    AWS_SECRET_ACCESS_KEY = db[0].secretaccesskey
-    rds = boto3.client('rds', aws_access_key_id=AWS_ACCESS_KEY_ID,
-                    aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
-                    region_name=AWS_DEFAULT_REGION)
     try:
         result = rds.describe_db_parameters(DBParameterGroupName='ck-parametergroup')
         for i in result['Parameters']:
@@ -154,13 +137,7 @@ def rds_paragrp_check():
     return '설정 완료'
 
 def ec2_iam_check():
-    db = accessKeyIDPW.objects.all()
 
-    AWS_ACCESS_KEY_ID = db[0].accesskeyid
-    AWS_SECRET_ACCESS_KEY = db[0].secretaccesskey
-    ec2 = boto3.client('ec2', aws_access_key_id=AWS_ACCESS_KEY_ID,
-                    aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
-                    region_name=AWS_DEFAULT_REGION)
     result = ec2.describe_instances()
     for i in result['Reservations']:
         try:
@@ -171,13 +148,8 @@ def ec2_iam_check():
     return '미설정'
 
 def ec2_watchagent_check():
-    db = accessKeyIDPW.objects.all()
 
-    AWS_ACCESS_KEY_ID = db[0].accesskeyid
-    AWS_SECRET_ACCESS_KEY = db[0].secretaccesskey
-    logs = boto3.client('logs', aws_access_key_id=AWS_ACCESS_KEY_ID,
-                    aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
-                    region_name=AWS_DEFAULT_REGION)
+    
     result = logs.describe_log_groups()
     tmp = 0
     for i in result['logGroups']:
@@ -189,13 +161,8 @@ def ec2_watchagent_check():
     return '미설정'
 
 def ec2_logconf_check():
-    db = accessKeyIDPW.objects.all()
 
-    AWS_ACCESS_KEY_ID = db[0].accesskeyid
-    AWS_SECRET_ACCESS_KEY = db[0].secretaccesskey
-    logs = boto3.client('logs', aws_access_key_id=AWS_ACCESS_KEY_ID,
-                    aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
-                    region_name=AWS_DEFAULT_REGION)
+    
     result = logs.describe_log_groups()
     for i in result['logGroups']:
         if i['logGroupName'] == 'ck-ShellCMDlog':

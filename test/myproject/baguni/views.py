@@ -7,6 +7,15 @@ import json
 from django.core import serializers
 from django.core.serializers.json import DjangoJSONEncoder
 from django.views.decorators.csrf import csrf_exempt
+from regist.models import accessKeyIDPW
+
+# Authentication
+def auth_check():
+    db = accessKeyIDPW.objects.all()
+    if not db:
+        return "incomplete"
+    else:
+        return "complete"
 
 def baguni(request):
     if request.method == 'POST':
@@ -18,7 +27,7 @@ def baguni(request):
         ob.delete()
     logs = Log.objects.all().order_by('timestamp')
     
-    context = {'logs':logs}
+    context = {'logs':logs, 'auth': auth_check()}
     return render(request, 'baguni/baguni.html', context)
 
 @csrf_exempt

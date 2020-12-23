@@ -2,19 +2,23 @@ import boto3
 import time
 import json
 import datetime
+from regist.models import accessKeyIDPW
 
-AWS_ACCESS_KEY_ID = ""
-AWS_SECRET_ACCESS_KEY = ""
-AWS_DEFAULT_REGION = "ap-northeast-2"
+db = accessKeyIDPW.objects.all()
+if db:
+    AWS_ACCESS_KEY_ID = db[0].accesskeyid
+    AWS_SECRET_ACCESS_KEY = db[0].secretaccesskey
+    AWS_DEFAULT_REGION = db[0].awsconfigregion
 
-logs = boto3.client('logs',
-                    aws_access_key_id=AWS_ACCESS_KEY_ID,
-                    aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
-                    region_name=AWS_DEFAULT_REGION)
 
-s3 = boto3.client('s3',aws_access_key_id=AWS_ACCESS_KEY_ID,
-                      aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
-                      region_name=AWS_DEFAULT_REGION)
+    logs = boto3.client('logs',
+                        aws_access_key_id=AWS_ACCESS_KEY_ID,
+                          aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
+                          region_name=AWS_DEFAULT_REGION)
+
+    s3 = boto3.client('s3',aws_access_key_id=AWS_ACCESS_KEY_ID,
+                          aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
+                          region_name=AWS_DEFAULT_REGION)
 
 # IAM : 총 7개 함수 (목요일에 다시 업데이트할 예정. 그전까지는 여기!)
 # s3에도 filterPattern에 eventSource = "s3.amazonaws.com" 추가해야함 <- 나중에 다시 한번에 추가하자 
